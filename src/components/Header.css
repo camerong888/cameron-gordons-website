@@ -1,0 +1,41 @@
+.header {
+    background-color: #003f5c;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .header h1 {
+    margin: 0;
+  }
+  
+  .header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .header li {
+    margin-left: 1rem;
+  }
+  
+  .header a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #00a8e8;
+    text-decoration: none;
+  }
+  
+  .header a:hover {
+    text-decoration: underline;
+  }
+  
+  .header-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #00a8e8; /* Adjust the hex color value to find the perfect shade between royal blue and cyan blue */
+  }
+  

@@ -1,0 +1,27 @@
+.contact {
+    padding: 2rem;
+    background-color: #f7f7f7;
+  }
+  
+  .contact a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .contact a:hover {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+  
+  .contact-container {
+    text-align: center;
+  }
+  
+  .contact-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    margin-bottom: 1rem;
+  }
+  
