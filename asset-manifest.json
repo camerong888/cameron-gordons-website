@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/cameron-gordons-website/static/css/main.4851456a.css",
-    "main.js": "/cameron-gordons-website/static/js/main.de0ac112.js",
+    "main.css": "/cameron-gordons-website/static/css/main.b34ea210.css",
+    "main.js": "/cameron-gordons-website/static/js/main.7fc17a33.js",
     "static/js/787.f8a0dea2.chunk.js": "/cameron-gordons-website/static/js/787.f8a0dea2.chunk.js",
     "static/media/camerongordon.jpg": "/cameron-gordons-website/static/media/camerongordon.5559c06edb5960826220.jpg",
     "static/media/logo.png": "/cameron-gordons-website/static/media/logo.685ee9ed62dcaf7a8938.png",
     "index.html": "/cameron-gordons-website/index.html",
-    "main.4851456a.css.map": "/cameron-gordons-website/static/css/main.4851456a.css.map",
-    "main.de0ac112.js.map": "/cameron-gordons-website/static/js/main.de0ac112.js.map",
+    "main.b34ea210.css.map": "/cameron-gordons-website/static/css/main.b34ea210.css.map",
+    "main.7fc17a33.js.map": "/cameron-gordons-website/static/js/main.7fc17a33.js.map",
     "787.f8a0dea2.chunk.js.map": "/cameron-gordons-website/static/js/787.f8a0dea2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4851456a.css",
-    "static/js/main.de0ac112.js"
+    "static/css/main.b34ea210.css",
+    "static/js/main.7fc17a33.js"
   ]
 }
