@@ -30,6 +30,8 @@
   }
   
   .work-experience-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
     font-size: 30px;
     margin-bottom: 1rem;
   }
