@@ -10,6 +10,7 @@
 
 .header-container.open .header-nav {
   display: flex;
+  flex-direction: column;
 }
 
 .header-title {
@@ -56,6 +57,11 @@
     left: 0;
     right: 0;
     text-align: center;
+    display: none; /* Add this line to hide the buttons by default */
+  }
+
+  .header-container.open .header-nav {
+    display: flex; /* Add this line to show the buttons when the menu is expanded */
   }
 
   .header-nav-item {
@@ -65,14 +71,32 @@
   .menu-toggle {
     display: block;
   }
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .content {
+
+  .header-container.open + .content {
     margin-top: 220px;
   }
-  
 }
 
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #00a8e8;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .nav.nav-open {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
