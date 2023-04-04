@@ -6,7 +6,7 @@ function WorkExperience() {
     <div className="work-experience-container">
       <h2 className="work-experience-title">Work Experience</h2>
       <section id="work-experience" className="work-experience">
-        <ul>
+        <ul style={{ listStyleType: 'none' }}>
           <li>
             <h3>Electrical Project Lead at Northeastern Electric Racing</h3>
             <p>Aug 2020 - Present</p>

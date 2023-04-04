@@ -1,11 +1,13 @@
 .contact {
-    padding: 2rem;
+    padding: 1rem;
     background-color: #f7f7f7;
   }
   
   .contact a {
     color: #007bff;
     text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
   }
   
   .contact a:hover {
@@ -15,6 +17,9 @@
   }
   
   .contact-container {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    margin-top: 20px;
     text-align: center;
   }
   

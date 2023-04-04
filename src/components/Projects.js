@@ -6,7 +6,7 @@ function Projects() {
     <div className="projects-container">
       <h2 className="projects-title">Projects</h2>
       <section id="projects" className="projects">
-        <ul>
+        <ul style={{ listStyleType: 'none' }}>
           <li>
             <h3>Telemetry Communication Board (2023 Comp Year)</h3>
             <p>Enables live telemetry data from Formula SAE electric vehicle to be wirelessly transmitted to remote computer/node for real-time analysis. Additionally features programmable ultra-robust meter-level GNSS/GPS positioning chip for live position, speed, direction, and time data. Onboard backup SD card logging enabled through integrated microcontroller.</p>
