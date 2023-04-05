@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.2bd62459.css",
-    "main.js": "/static/js/main.d61b4f7a.js",
-    "static/js/787.f8a0dea2.chunk.js": "/static/js/787.f8a0dea2.chunk.js",
-    "static/media/camerongordon.jpg": "/static/media/camerongordon.5559c06edb5960826220.jpg",
-    "static/media/logo.png": "/static/media/logo.685ee9ed62dcaf7a8938.png",
-    "index.html": "/index.html",
-    "main.2bd62459.css.map": "/static/css/main.2bd62459.css.map",
-    "main.d61b4f7a.js.map": "/static/js/main.d61b4f7a.js.map",
-    "787.f8a0dea2.chunk.js.map": "/static/js/787.f8a0dea2.chunk.js.map"
+    "main.css": "/cameron-gordons-website/static/css/main.2bd62459.css",
+    "main.js": "/cameron-gordons-website/static/js/main.78cccc18.js",
+    "static/js/787.f8a0dea2.chunk.js": "/cameron-gordons-website/static/js/787.f8a0dea2.chunk.js",
+    "static/media/camerongordon.jpg": "/cameron-gordons-website/static/media/camerongordon.5559c06edb5960826220.jpg",
+    "static/media/logo.png": "/cameron-gordons-website/static/media/logo.685ee9ed62dcaf7a8938.png",
+    "index.html": "/cameron-gordons-website/index.html",
+    "main.2bd62459.css.map": "/cameron-gordons-website/static/css/main.2bd62459.css.map",
+    "main.78cccc18.js.map": "/cameron-gordons-website/static/js/main.78cccc18.js.map",
+    "787.f8a0dea2.chunk.js.map": "/cameron-gordons-website/static/js/787.f8a0dea2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2bd62459.css",
-    "static/js/main.d61b4f7a.js"
+    "static/js/main.78cccc18.js"
   ]
 }
