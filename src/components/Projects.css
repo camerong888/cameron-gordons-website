@@ -36,3 +36,12 @@
     margin-bottom: 0rem;
   }
   
+  .projects a {
+    color: var(--secondary-color); /* Use your preferred color */
+    text-decoration: none;
+  }
+  
+  .projects a:hover {
+    text-decoration: underline;
+  }
+  

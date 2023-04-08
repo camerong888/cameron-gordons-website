@@ -10,7 +10,6 @@ function Contact() {
     <div className="contact-container">
       <h2 className="contact-title">Contact</h2>
       <section id="contact" className="contact">
-        {/* <p>Emails:</p> */}
         <ul style={{ listStyleType: 'none' }}>
           <li>Personal: <a href={`mailto:${personalEmail}`}>{personalEmail}</a></li>
           <li>Educational: <a href={`mailto:${educationalEmail}`}>{educationalEmail}</a></li>

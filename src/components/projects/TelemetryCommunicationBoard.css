@@ -1,0 +1,31 @@
+.telemetry-board {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .telemetry-board h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .telemetry-board p {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  
+  .telemetry-board ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .telemetry-board li {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+  
+  

@@ -9,11 +9,13 @@
   font-weight: 500;
   font-size: 30px;
   margin-bottom: 0rem;
+
 }
 
 .about {
   padding: 0rem;
   text-align: center;
+  
 }
 
 .about p {
@@ -22,4 +24,5 @@
   font-size: 20px;
   max-width: 800px;
   margin: 1rem auto;
+  
 }

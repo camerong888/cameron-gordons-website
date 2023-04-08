@@ -7,23 +7,34 @@ import WorkExperience from './components/WorkExperience';
 import Contact from './components/Contact';
 import About from './components/About';
 import Footer from './components/Footer';
+import './globalStyles.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import TelemetryCommunicationBoard from './components/projects/TelemetryCommunicationBoard'; 
+
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <div className="content">
-        <main>
-          <Home />
-          <Projects />
-          <WorkExperience />
-          <About />
-          <Contact />
-        </main>
-      </div>
-      <Footer />
+      <Router>
+        <Header />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<main>
+                <Home />
+                <Projects />
+                <WorkExperience />
+                <About />
+                <Contact />
+              </main>
+            } />
+            <Route path="/components/projects/telemetry-communication-board" element={<TelemetryCommunicationBoard />} />
+          </Routes>
+        </div>
+        <Footer />
+      </Router>
     </div>
   );
 }
+
 
 export default App;
