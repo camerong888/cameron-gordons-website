@@ -1,6 +1,7 @@
 import React from 'react';
 import './Projects.css';
 import { Link } from 'react-router-dom';
+const linkedpicture = 'https://www.linkedin.com/in/gordonca/overlay/1635520941542/single-media-viewer/?profileId=ACoAAB6c2M0BA1AxUAHza_4ZPARSM26a076E5BY';
 
 function Projects() {
   return (
@@ -10,7 +11,10 @@ function Projects() {
         <ul style={{ listStyleType: 'none' }}>
           <li>
           <h3>
-              <Link to="/telemetry-communication-board" target="_blank">Telemetry Communication Board (2023 Comp Year)</Link>
+              {/* <Link to="/telemetry-communication-board" target="_blank">Telemetry Communication Board (2023 Comp Year)</Link> */}
+              <a href={linkedpicture} target="_blank" rel="noopener noreferrer">
+                Telemetry Communication Board (2023 Comp Year)
+              </a>
             </h3>
             <p>Enables live telemetry data from Formula SAE electric vehicle to be wirelessly transmitted to remote computer/node for real-time analysis. Additionally features programmable ultra-robust meter-level GNSS/GPS positioning chip for live position, speed, direction, and time data. Onboard backup SD card logging enabled through integrated microcontroller.</p>
           </li>

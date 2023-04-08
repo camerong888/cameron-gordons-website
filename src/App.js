@@ -26,8 +26,10 @@ function App() {
                 <About />
                 <Contact />
               </main>
-            } />
-            <Route path="/components/projects/telemetry-communication-board" element={<TelemetryCommunicationBoard />} />
+            } 
+            index
+            />
+            {/* <Route path="/components/projects/telemetry-communication-board" element={<TelemetryCommunicationBoard />} /> */}
           </Routes>
         </div>
         <Footer />
