@@ -22,7 +22,9 @@ function Header() {
 
   return (
     <header className={`header-container${menuOpen ? " open" : ""}`}>
-      <h1 className="header-title">Cameron Gordon</h1>
+      <Link onClick={() => handleNavigation("/", "home")} to="/#home">
+        <h1 className="header-title">Cameron Gordon</h1>
+      </Link>
       <span className="menu-toggle" onClick={handleMenuToggle}>
         &#9776;
       </span>
