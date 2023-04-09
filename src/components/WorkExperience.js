@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 function WorkExperience() {
   return (
     <div className="workexperience-container">
-      <h2 className="workexperience-title">Work Experience</h2>
       <section id="work-experience" className="workexperience">
+        <h2 className="workexperience-title">Work Experience</h2>
         <ul style={{ listStyleType: "none" }}>
           <li>
             <h3>

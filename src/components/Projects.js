@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 function Projects() {
   return (
     <div className="projects-container">
-      <h2 className="projects-title">Projects</h2>
       <section id="projects" className="projects">
+      <h2 className="projects-title">Projects</h2>
         <ul style={{ listStyleType: "none" }}>
           <li>
             <h3>

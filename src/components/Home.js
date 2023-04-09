@@ -5,8 +5,8 @@ import profilePicture from "../assets/camerongordon.jpg";
 function Home() {
   return (
     <div className="home-container">
-      <h2 className="home-title">Welcome to my personal website!</h2>
       <section id="home" className="home">
+        <h2 className="home-title">Welcome to my personal website!</h2>
         <img
           src={profilePicture}
           alt="Cameron Gordon"
