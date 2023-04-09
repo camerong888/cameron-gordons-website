@@ -1,17 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.e858ae10.css",
-    "main.js": "/static/js/main.102871a3.js",
+    "main.css": "/static/css/main.ae33c6ee.css",
+    "main.js": "/static/js/main.8f08ca7f.js",
     "static/js/787.f8a0dea2.chunk.js": "/static/js/787.f8a0dea2.chunk.js",
     "static/media/camerongordon.jpg": "/static/media/camerongordon.5559c06edb5960826220.jpg",
+    "static/media/interior.jpeg": "/static/media/interior.2ebf7c1ed3d405e140ab.jpeg",
+    "static/media/connector.jpeg": "/static/media/connector.54541de924b642e636ef.jpeg",
+    "static/media/exterior.jpeg": "/static/media/exterior.0db44a3bb1cf92edc637.jpeg",
+    "static/media/dashboard.jpeg": "/static/media/dashboard.09124ec30ad26b080eb0.jpeg",
     "static/media/telemetrycommunicationboard.jpeg": "/static/media/telemetrycommunicationboard.0e03625c09aff3eebdb0.jpeg",
     "index.html": "/index.html",
-    "main.e858ae10.css.map": "/static/css/main.e858ae10.css.map",
-    "main.102871a3.js.map": "/static/js/main.102871a3.js.map",
+    "main.ae33c6ee.css.map": "/static/css/main.ae33c6ee.css.map",
+    "main.8f08ca7f.js.map": "/static/js/main.8f08ca7f.js.map",
     "787.f8a0dea2.chunk.js.map": "/static/js/787.f8a0dea2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e858ae10.css",
-    "static/js/main.102871a3.js"
+    "static/css/main.ae33c6ee.css",
+    "static/js/main.8f08ca7f.js"
   ]
 }
