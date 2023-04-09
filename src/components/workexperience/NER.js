@@ -12,15 +12,15 @@ function NER(props) {
       <p>Here's some information about the experience:</p>
       <ul>
         <li>
-          Leading a team of 8+ undergraduate EEs through complete design cycles
-          of projects that contribute to the development of a formula-style
-          electric vehicle
+          Led a team of 8+ undergraduate electrical engineers through complete
+          design cycles of projects that contributed to the development of a
+          formula-style electric vehicle.
         </li>
         <li>
-          Work on a tight timeline to meet deadlines in accordance with budget,
-          rules compliance, and technical specifications to document,
-          communicate design progress, and work with other research and design
-          teams
+          Worked on a tight timeline to meet deadlines in accordance with
+          budget, rules compliance, and technical specifications, while
+          documenting and communicating design progress, and collaborating with
+          other research and design teams.
         </li>
       </ul>
     </div>

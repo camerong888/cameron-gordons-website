@@ -7,7 +7,7 @@ import ConnectorPicture from '../../assets/chargerproject/connector.jpeg';
 function ChargerProject() {
   return (
     <div className="charger-project">
-      <h1>300VDC AC/DC Charger Project</h1>
+      <h1>300VDC AC/DC EV Charger Project</h1>
       <p>2021 Competition Year</p>
       <img
         src={InteriorPicture}
