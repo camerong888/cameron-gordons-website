@@ -1,11 +1,10 @@
-
 import React from 'react';
+import './DashboardProject.css'
 
 function DashboardProject() {
   return (
     <div>
       <h1>Dashboard Project</h1>
-      {/* Add more information about the project here */}
     </div>
   );
 }
