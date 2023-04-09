@@ -58,11 +58,13 @@
     left: 0;
     right: 0;
     text-align: center;
-    display: none; /* Add this line to hide the buttons by default */
+    display: none;
+    /* Add this line to hide the buttons by default */
   }
 
   .header-container.open .header-nav {
-    display: flex; /* Add this line to show the buttons when the menu is expanded */
+    display: flex;
+    /* Add this line to show the buttons when the menu is expanded */
   }
 
   .header-nav-item {
@@ -73,7 +75,7 @@
     display: block;
   }
 
-  .header-container.open + .content {
+  .header-container.open+.content {
     margin-top: 220px;
   }
 }

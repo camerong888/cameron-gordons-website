@@ -1,28 +1,30 @@
-import React from 'react';
-import './Projects.css';
-import { Link } from 'react-router-dom';
-const linkedpicture = 'https://www.linkedin.com/in/gordonca/overlay/1635520941542/single-media-viewer/?profileId=ACoAAB6c2M0BA1AxUAHza_4ZPARSM26a076E5BY';
+import React from "react";
+import "./Projects.css";
+import { Link } from "react-router-dom";
 
 function Projects() {
   return (
     <div className="projects-container">
       <h2 className="projects-title">Projects</h2>
       <section id="projects" className="projects">
-        <ul style={{ listStyleType: 'none' }}>
+        <ul style={{ listStyleType: "none" }}>
           <li>
-          <h3>
-              {/* <Link to="/telemetry-communication-board" target="_blank">Telemetry Communication Board (2023 Comp Year)</Link> */}
-              <a href={linkedpicture} target="_blank" rel="noopener noreferrer">
-                Telemetry Communication Board (2023 Comp Year)
-              </a>
+            <h3>
+              <Link to="/tcb">Telemetry Communication Board</Link>
             </h3>
-            <p>Enables live telemetry data from Formula SAE electric vehicle to be wirelessly transmitted to remote computer/node for real-time analysis. Additionally features programmable ultra-robust meter-level GNSS/GPS positioning chip for live position, speed, direction, and time data. Onboard backup SD card logging enabled through integrated microcontroller.</p>
+            <p>2023 Competition Year</p>
           </li>
           <li>
-            <h3>Dashboard (2022 Comp Year)</h3>
+            <h3>
+              <Link to="/dashboard"> Dashboard</Link>
+            </h3>
+            <p>2022 Competition Year</p>
           </li>
           <li>
-            <h3>Charger Internals (2021 Comp Year)</h3>
+            <h3>
+              <Link to="/charger"> Charger Internals</Link>
+            </h3>
+            <p>2021 Competition Year</p>
           </li>
         </ul>
       </section>

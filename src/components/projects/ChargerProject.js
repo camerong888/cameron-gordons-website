@@ -1,4 +1,5 @@
 import React from 'react';
+import './ChargerProject.css'
 
 function ChargerProject() {
   return (
