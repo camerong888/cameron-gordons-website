@@ -16,6 +16,7 @@ function WorkExperience() {
               </Link>
             </h3>
             <p>Aug 2020 - Present</p>
+            <p>Boston, MA</p>
           </li>
           <li>
             <h3>
@@ -25,6 +26,7 @@ function WorkExperience() {
               </Link>
             </h3>
             <p>Jan 2022 - Aug 2022</p>
+            <p>Palo Alto, CA</p>
           </li>
           <li>
             <h3>
@@ -34,6 +36,7 @@ function WorkExperience() {
               </Link>
             </h3>
             <p>Jan 2021 - Aug 2021</p>
+            <p>Lawrence, MA</p>
           </li>
         </ul>
       </section>
