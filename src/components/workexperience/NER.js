@@ -6,8 +6,8 @@ function NER(props) {
   return (
     <div className="ner-work">
       <h1>Electrical Project Lead at Northeastern Electric Racing</h1>
-      <p>Jan 2022 - Aug 2022</p>
-      <p>Palo Alto, CA</p>
+      <p>Aug 2020 - Present</p>
+      <p>Boston, MA</p>
       <img src={Car} alt="EV" className="car-picture" />
       <p>Here's some information about the experience:</p>
       <ul>

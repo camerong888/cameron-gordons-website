@@ -6,8 +6,8 @@ function Tesla(props) {
   return (
     <div className="tesla">
       <h1> Display Electrical Engineering Internship at Tesla </h1>
-      <p>Aug 2020 - Present</p>
-      <p>Boston, MA</p>
+      <p>Jan 2022 - Aug 2022</p>
+      <p>Palo Alto, CA</p>
       <img src={Hq} alt="Hq" className="hq-picture" />
       <p>Here's some information about the experience:</p>
       <ul>
