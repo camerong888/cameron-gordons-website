@@ -1,11 +1,12 @@
 import React from "react";
 import "./TelemetryCommunicationBoard.css";
-import PCBpicture from "../../assets/telemetrycommunicationboard.jpeg";
+import PCBpicture from "../../assets/telemetrycommunicationboard/telemetrycommunicationboard.jpeg";
 
 function TelemetryCommunicationBoard() {
   return (
     <div className="telemetry-board">
       <h1>Telemetry Communication Board Project</h1>
+      <p>2023 Competition Year</p>
       <img
         src={PCBpicture}
         alt="Telemetry Communication Board (2023 Comp Year)"
