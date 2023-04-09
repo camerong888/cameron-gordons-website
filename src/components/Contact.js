@@ -9,6 +9,7 @@ function Contact() {
   return (
     <div className="contact-container">
       <section id="contact" className="contact">
+      </section>
         <h2 className="contact-title">Contact</h2>
         <ul style={{ listStyleType: "none" }}>
           <li>
@@ -25,7 +26,7 @@ function Contact() {
             {linkedInUrl}
           </a>
         </p>
-      </section>
+      
     </div>
   );
 }

@@ -1,8 +1,8 @@
 .contact {
-  padding: 1rem;
+  padding: 0rem;
 }
 
-.contact a {
+.contact-container a {
   color: #007bff;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
@@ -10,7 +10,7 @@
   transition: color 0.3s ease-in-out;
 }
 
-.contact a:hover {
+.contact-container a:hover {
   color: #0056b3;
   text-decoration: underline;
 }
@@ -20,12 +20,13 @@
   font-weight: 500;
   margin-top: 20px;
   text-align: center;
-  background-color: #f7f7f7;
 }
 
 .contact-title {
+  background-color: #f7f7f7;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 30px;
   margin-bottom: 1rem;
+  margin-top: 2rem;
 }

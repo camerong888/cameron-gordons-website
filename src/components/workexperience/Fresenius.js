@@ -5,6 +5,7 @@ function Fresenius(props) {
     return (
         <div className="fresenius">
             <h1>Fresenius</h1>
+            <p>This website is still under construction!</p>
         </div>
     );
 }

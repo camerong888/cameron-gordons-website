@@ -10,10 +10,11 @@
   font-weight: 500;
   font-size: 30px;
   margin-bottom: 0rem;
+  background-color: #f7f7f7;
 }
 
 .workexperience {
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

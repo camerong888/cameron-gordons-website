@@ -5,6 +5,7 @@ function DashboardProject() {
   return (
     <div>
       <h1>Dashboard Project</h1>
+      <p>This website is still under construction!</p>
     </div>
   );
 }

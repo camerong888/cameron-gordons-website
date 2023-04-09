@@ -5,7 +5,7 @@ function ChargerProject() {
   return (
     <div>
       <h1>Charger Project</h1>
-      {/* Add more information about the project here */}
+      <p>This website is still under construction!</p>
     </div>
   );
 }

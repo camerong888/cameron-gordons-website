@@ -1,14 +1,13 @@
 .projects {
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 0rem;
 }
 
 .project-card {
   background-color: #f7f7f7;
-  padding: 1rem;
   border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -34,6 +33,7 @@
   font-weight: 500;
   font-size: 30px;
   margin-bottom: 0rem;
+  background-color: #f7f7f7;
 }
 
 .projects a {
