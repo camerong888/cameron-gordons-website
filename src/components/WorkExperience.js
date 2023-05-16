@@ -12,7 +12,7 @@ function WorkExperience() {
             <h3>
               <Link to="/NER">
                 {" "}
-                Electrical Project Lead at Northeastern Electric Racing
+                Electrical Project Lead at Northeastern Electric Racing (NER)
               </Link>
             </h3>
             <p>Aug 2020 - Present</p>
