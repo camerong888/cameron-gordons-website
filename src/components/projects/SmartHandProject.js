@@ -3,6 +3,7 @@ import "./SmartHandProject.css";
 import SmartHandPCB from "../../assets/smarthand/SmartHandPCB.jpg";
 import SchematicPage1 from "../../assets/smarthand/SchematicPage1.jpg";
 import SchematicPage2 from "../../assets/smarthand/SchematicPage2.jpg";
+import fabricatedpcb from "../../assets/smarthand/fabricatedpcb.jpg";
 
 function SmartHand() {
   return (
@@ -48,6 +49,7 @@ function SmartHand() {
         <li>
           Designed in Altium
         </li>
+        <img src={fabricatedpcb} alt="Hq" className="hq-picture" />
       </ul>
     </div>
   );

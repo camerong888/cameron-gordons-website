@@ -16,6 +16,7 @@ import ChargerProject from "./components/projects/ChargerProject";
 import NER from "./components/workexperience/NER";
 import Fresenius from "./components/workexperience/Fresenius";
 import Tesla from "./components/workexperience/Tesla";
+import LibertyDefense from "./components/workexperience/LibertyDefense";
 
 function App() {
   return (
@@ -69,6 +70,15 @@ function App() {
               element={
                 <main>
                   <ChargerProject />
+                </main>
+              }
+              index
+            />
+            <Route
+              path="/libertydefense"
+              element={
+                <main>
+                  <LibertyDefense />
                 </main>
               }
               index

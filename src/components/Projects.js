@@ -10,7 +10,7 @@ function Projects() {
         <ul style={{ listStyleType: "none" }}>
           <li>
             <h3>
-              <Link to="/smarthand">SmartHand Device</Link>
+              <Link to="/smarthand">SmartHand Embedded Device</Link>
             </h3>
             <p>2023 Personal Embedded Device Project</p>
           </li>
