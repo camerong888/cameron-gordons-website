@@ -17,11 +17,13 @@ import NER from "./components/workexperience/NER";
 import Fresenius from "./components/workexperience/Fresenius";
 import Tesla from "./components/workexperience/Tesla";
 import LibertyDefense from "./components/workexperience/LibertyDefense";
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <ScrollToTop />
         <Header />
         <div className="content">
           <Routes>
