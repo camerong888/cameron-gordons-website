@@ -21,7 +21,13 @@ function SmartHand() {
           The SmartHand device is designed to be a integrated into a glove. The
           goal of this device is to connect to a phone or computer via Bluetooth
           and to track and visualize the user's hand and finger movements in
-          real time, using multiple flex sensors and IMUs. 
+          real time, using multiple flex sensors and IMUs.
+        </li>
+        <li>
+          The device integrates a STM32WBA52CGU6 microcontroller with custom
+          firmware flashed onto the device via the onboard bootloader written in
+          C. Both I2C and UART is utilized to communicate to the embedded ICs
+          and modules.
         </li>
         <li>Connectivity: USB-C & Bluetooth</li>
         <img
@@ -35,20 +41,16 @@ function SmartHand() {
           className="schematic2-picture"
         />
         <li>
-          Custom-designed, wearable Smart Glove device scheamtic. It features the
-          STM32WBA52CGU6 microcontroller, a USB-to-UART Bridge, a Li-Ion
+          Custom-designed, wearable Smart Glove device scheamtic. It features
+          the STM32WBA52CGU6 microcontroller, a USB-to-UART Bridge, a Li-Ion
           charger, a power mux, a buck-boost converter, and an I2C expander for
           external IMU communication. The device is also equipped with a haptic
           motor driver, Bluetooth connectivity, and multiple sensors (including
           flex sensors and an onboard IMU) to monitor the user's hand movements
           and gestures accurately.
         </li>
-        <li>
-          Design goals: compact and low power consumption
-        </li>
-        <li>
-          Designed in Altium
-        </li>
+        <li>Design goals: compact and low power consumption</li>
+        <li>Designed in Altium</li>
         <img src={fabricatedpcb} alt="Hq" className="hq-picture" />
       </ul>
     </div>
