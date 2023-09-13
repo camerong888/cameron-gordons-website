@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.0d9cd162.css",
-    "main.js": "/static/js/main.5664c9de.js",
+    "main.js": "/static/js/main.88a10417.js",
     "static/js/787.f8a0dea2.chunk.js": "/static/js/787.f8a0dea2.chunk.js",
     "static/media/camerongordon.jpg": "/static/media/camerongordon.5559c06edb5960826220.jpg",
     "static/media/fabricatedpcb.jpg": "/static/media/fabricatedpcb.75c317503e28382113ad.jpg",
@@ -28,11 +28,11 @@
     "static/media/Liberty-Defense-Logo-Lg.png": "/static/media/Liberty-Defense-Logo-Lg.cacf240ec87afca07404.png",
     "index.html": "/index.html",
     "main.0d9cd162.css.map": "/static/css/main.0d9cd162.css.map",
-    "main.5664c9de.js.map": "/static/js/main.5664c9de.js.map",
+    "main.88a10417.js.map": "/static/js/main.88a10417.js.map",
     "787.f8a0dea2.chunk.js.map": "/static/js/787.f8a0dea2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0d9cd162.css",
-    "static/js/main.5664c9de.js"
+    "static/js/main.88a10417.js"
   ]
 }
