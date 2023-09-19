@@ -1,6 +1,6 @@
 import React from "react";
 import "./IridiumIoTEmbeddedDevice.css";
-import IridiumPCB from "../../assets/iridiumiot/Capstone PCB updated.png";
+import IridiumPCB from "../../assets/iridiumiot/Capstone PCB.png";
 import SchematicPage1 from "../../assets/iridiumiot/page 1.png";
 import SchematicPage2 from "../../assets/iridiumiot/page 2.png";
 import SchematicPage3 from "../../assets/iridiumiot/page 3.png";
