@@ -7,13 +7,14 @@ function About() {
       <section id="about" className="about">
         <h2 className="about-title">About</h2>
         <p>
-          As an electrical and computer engineering masters student at Northeastern University,
-          I am passionate about harnessing technology to improve people's lives. 
-          With internships at companies known for their innovative approaches to
-          engineering, Tesla and Fresenius Medical Care, I have acquired
-          valuable hands-on experience and developed a strong foundation in
-          various aspects of electrical engineering, including embedded systems,
-          firmware design, PCB design, and project ownership.
+          As an electrical and computer engineering masters student at
+          Northeastern University, I am passionate about harnessing technology
+          to improve people's lives. With internships at companies known for
+          their innovative approaches to engineering, Tesla and Fresenius
+          Medical Care, I have acquired valuable hands-on experience and
+          developed a strong foundation in various aspects of electrical
+          engineering, including embedded systems, firmware design, PCB design,
+          and project ownership.
         </p>
         <p>
           Through these internships and my academic coursework, I have honed my

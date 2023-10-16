@@ -5,6 +5,7 @@ function Contact() {
   const personalEmail = "camerong888" + "@" + "gmail.com";
   const educationalEmail = "gordon.ca" + "@" + "northeastern.edu";
   const linkedInUrl = "https://" + "www.linkedin.com" + "/in/gordonca/";
+  const githubUrl = "https://" + "www.github.com" + "/camerong888";
 
   return (
     <div className="contact-container">
@@ -23,6 +24,12 @@ function Contact() {
           LinkedIn:{" "}
           <a href={linkedInUrl} target="_blank" rel="noopener noreferrer">
             {linkedInUrl}
+          </a>
+        </p>
+        <p>
+          GitHub:{" "}
+          <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+            {githubUrl}
           </a>
         </p>
       </section>

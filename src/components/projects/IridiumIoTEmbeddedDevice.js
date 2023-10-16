@@ -4,7 +4,7 @@ import IridiumPCB from "../../assets/iridiumiot/Capstone PCB.png";
 import SchematicPage1 from "../../assets/iridiumiot/page 1.png";
 import SchematicPage2 from "../../assets/iridiumiot/page 2.png";
 import SchematicPage3 from "../../assets/iridiumiot/page 3.png";
-import EmbeddedArchDiagram from "../../assets/iridiumiot/page 1.png";
+import FabricatedPCB from "../../assets/iridiumiot/fabricatedpcb.png";
 
 function IridiumIoTEmbeddedDevice() {
   return (
@@ -18,25 +18,49 @@ function IridiumIoTEmbeddedDevice() {
       />
       <p>Here's some details about the Iridium IoT project:</p>
       <ul style={{ listStyleType: "none" }}>
+        <h4>Device Usecase:</h4>
         <li>
           The Iridium IoT Embedded Device is purpose-built for seamless
           communication using the Iridium satellite network, making it ideal for
-          remote IoT applications where traditional connectivity is unavailable.
+          remote IoT applications where traditional connectivity (cellular
+          network connectivity) is unavailable.
         </li>
         <li>
-          The device utilises a Teensy 4.1 microcontroller with custom
-          firmware written in C++. Both I2C and UART is utilized to communicate
-          to the embedded ICs and modules.
+          This device is perfect for explorers to contact emergency services in
+          remote locations to relay their live location.
+        </li>
+        <p> </p>
+        <h4>Embedded Architecture:</h4>
+        <li>
+          The device utilizes a Teensy 4.1 microcontroller with custom firmware
+          written in C++. Both I2C and UART communication protocols are utilized
+          to communicate to the embedded ICs and modules.
         </li>
         <li>
           The embedded device features the SAM-M10Q GNSS integrated patch
           antenna module for live location data, the RockBLOCK 9603 Iridium
           transceiver for 100% earth coverage of short burst data (SBD) internet
-          connectivity, and a flexible power architecture to run off of a
-          portable 3.7V lithium ion battery or USB power. An integrated battery
-          charger IC is also featured with a coupled power MUX for seamless
-          charging.{" "}
+          connectivity, and an inertial measurement unit (IMU) for additional
+          data collection. It additionally features a micro SD card in which the
+          collected data (location, heading, speed etc.) that is frequently
+          queried is stored for external processing.
         </li>
+        <h4>Power Architecture:</h4>
+        <li>
+          A flexible power architecture is utilized to run off of a portable
+          3.7V lithium ion battery or 5V USB power. This is achieved through the
+          use of a priority power multiplexer. A 5V boost and 3.3V buck
+          regulator IC is employed to satisfy all modules voltage requirements.
+          Additionally, a battery charger IC is featured for seamless charging
+          when USB power is connected.
+        </li>
+        <li>
+          External RGY LEDs and buttons are utilized for the user to interact
+          with and receive feedback about the device's current state. Gate drive
+          ICs are utilized to boost the GPIO control voltage (3.3V) from the MCU
+          to 12V to drive the FETs controlling the external LEDs.
+        </li>
+        <img src={FabricatedPCB} alt="Hq" className="hq-picture" />
         <img
           src={SchematicPage1}
           alt="Schematic Page 1"
