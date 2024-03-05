@@ -8,7 +8,7 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import "./globalStyles.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import SmartHand from "./components/projects/SmartHandProject";
 import IridiumIoTEmbeddedDevice from "./components/projects/IridiumIoTEmbeddedDevice";
 import TelemetryCommunicationBoard from "./components/projects/TelemetryCommunicationBoard";
