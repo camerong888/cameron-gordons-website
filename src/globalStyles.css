@@ -7,7 +7,12 @@ body {
 }
 
 body, html {
-  cursor: url('/src/assets/RoboticHand.cur'), auto;
+  cursor: url('/src/assets/robotichand/RoboticHand-black-48.svg'), auto;
+}
+
+/* Change the cursor for hovering over links */
+a:hover {
+  cursor: url('/src/assets/robotichand/RoboticHand-blue-48.svg'), pointer;
 }
 
 /* Font sizes */
