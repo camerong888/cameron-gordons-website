@@ -6,6 +6,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+body, html {
+  cursor: url('/src/assets/RoboticHand.cur'), auto;
+}
+
 /* Font sizes */
 h1 {
   font-size: 2rem;
