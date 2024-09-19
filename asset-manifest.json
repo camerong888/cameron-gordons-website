@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.3e8ec839.css",
-    "main.js": "/static/js/main.0210bc0c.js",
+    "main.css": "/static/css/main.4d6d0145.css",
+    "main.js": "/static/js/main.90617ae3.js",
     "static/js/787.f8a0dea2.chunk.js": "/static/js/787.f8a0dea2.chunk.js",
     "static/media/camerongordon.jpg": "/static/media/camerongordon.5559c06edb5960826220.jpg",
     "static/media/fabricatedpcb.png": "/static/media/fabricatedpcb.7e41a07d2b368baa0e7f.png",
     "static/media/fabricatedpcb.jpg": "/static/media/fabricatedpcb.75c317503e28382113ad.jpg",
     "static/media/interior.jpeg": "/static/media/interior.2ebf7c1ed3d405e140ab.jpeg",
     "static/media/SchematicPage1.jpg": "/static/media/SchematicPage1.79be81505536a1dc03cf.jpg",
+    "static/media/sunsensor.png": "/static/media/sunsensor.05a2233cf761e4c87dd6.png",
     "static/media/connector.jpeg": "/static/media/connector.54541de924b642e636ef.jpeg",
     "static/media/exterior.jpeg": "/static/media/exterior.0db44a3bb1cf92edc637.jpeg",
     "static/media/dashboard.jpeg": "/static/media/dashboard.09124ec30ad26b080eb0.jpeg",
@@ -22,20 +23,19 @@
     "static/media/Capstone PCB.png": "/static/media/Capstone PCB.9f1685e22aaeef554b5b.png",
     "static/media/telemetrycommunicationboard.jpeg": "/static/media/telemetrycommunicationboard.0e03625c09aff3eebdb0.jpeg",
     "static/media/nxone.png": "/static/media/nxone.2508bb761da67a9ee28f.png",
+    "static/media/redwire-logo.jpg": "/static/media/redwire-logo.cd3b2e00a95d06f20c19.jpg",
     "static/media/display.avif": "/static/media/display.5bd99caa10fc1fcf6ef0.avif",
     "static/media/car.jpeg": "/static/media/car.b85981c3244990514020.jpeg",
     "static/media/nuelecracing.jpeg": "/static/media/nuelecracing.911f7083218bd2e2e0ae.jpeg",
     "static/media/NxStage.png": "/static/media/NxStage.97f30a3b4928b1aaa8b1.png",
     "static/media/Liberty-Defense-Logo-Lg.png": "/static/media/Liberty-Defense-Logo-Lg.cacf240ec87afca07404.png",
-    "static/media/RoboticHand-black-48.svg": "/static/media/RoboticHand-black-48.0a8ba58007663c51fafa.svg",
-    "static/media/RoboticHand-blue-48.svg": "/static/media/RoboticHand-blue-48.89a402f2a05f519a31e7.svg",
     "index.html": "/index.html",
-    "main.3e8ec839.css.map": "/static/css/main.3e8ec839.css.map",
-    "main.0210bc0c.js.map": "/static/js/main.0210bc0c.js.map",
+    "main.4d6d0145.css.map": "/static/css/main.4d6d0145.css.map",
+    "main.90617ae3.js.map": "/static/js/main.90617ae3.js.map",
     "787.f8a0dea2.chunk.js.map": "/static/js/787.f8a0dea2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3e8ec839.css",
-    "static/js/main.0210bc0c.js"
+    "static/css/main.4d6d0145.css",
+    "static/js/main.90617ae3.js"
   ]
 }
