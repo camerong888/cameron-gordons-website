@@ -42,11 +42,12 @@ function About() {
           IEEE-sponsored Formula Hybrid+Electric 2021 Competition.
         </p>
         <p>
-          I am also working on a personal project, the SUMMIT SIGNAL—an IoT
-          satellite-based SOS device with AWS web connectivity. This handheld
-          device integrates advanced hardware features like GNSS and Iridium
-          patch antennas, IMU, MCU, gate driver, Li-Ion charger, and power
-          multiplexer to enhance global emergency communication.
+          I have also recently finished working on a personal project, the
+          SUMMIT SIGNAL—an IoT satellite-based SOS device with AWS web
+          connectivity. This handheld device integrates advanced hardware
+          features like GNSS and Iridium patch antennas, IMU, MCU, gate driver,
+          Li-Ion charger, and power multiplexer to enable global emergency
+          communication.
         </p>
         <p>
           As I embark on the next chapter of my career, I am eager to join a
