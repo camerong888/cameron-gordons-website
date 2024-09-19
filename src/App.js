@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Projects from "./components/Projects";
 import WorkExperience from "./components/WorkExperience";
+import Extracurriculars from "./components/Extracurriculars";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import Footer from "./components/Footer";
@@ -14,9 +15,10 @@ import IridiumIoTEmbeddedDevice from "./components/projects/IridiumIoTEmbeddedDe
 import TelemetryCommunicationBoard from "./components/projects/TelemetryCommunicationBoard";
 import DashboardProject from "./components/projects/DashboardProject";
 import ChargerProject from "./components/projects/ChargerProject";
-import NER from "./components/workexperience/NER";
+import NER from "./components/extracurriculars/NER";
 import Fresenius from "./components/workexperience/Fresenius";
 import Tesla from "./components/workexperience/Tesla";
+import Redwire from "./components/workexperience/Redwire";
 import LibertyDefense from "./components/workexperience/LibertyDefense";
 import ScrollToTop from "./ScrollToTop";
 
@@ -33,8 +35,9 @@ function App() {
               element={
                 <main>
                   <Home />
-                  <Projects />
                   <WorkExperience />
+                  <Projects />
+                  <Extracurriculars />
                   <About />
                   <Contact />
                 </main>
@@ -110,6 +113,15 @@ function App() {
               element={
                 <main>
                   <Tesla />
+                </main>
+              }
+              index
+            />
+            <Route
+              path="/redwire"
+              element={
+                <main>
+                  <Redwire />
                 </main>
               }
               index

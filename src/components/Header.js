@@ -42,6 +42,15 @@ function Header() {
           <li className="header-nav-item">
             <Link
               className="header-nav-link"
+              onClick={() => handleNavigation("/", "work-experience")}
+              to="/#work-experience"
+            >
+              Work Experience
+            </Link>
+          </li>
+          <li className="header-nav-item">
+            <Link
+              className="header-nav-link"
               onClick={() => handleNavigation("/", "projects")}
               to="/#projects"
             >
@@ -51,10 +60,10 @@ function Header() {
           <li className="header-nav-item">
             <Link
               className="header-nav-link"
-              onClick={() => handleNavigation("/", "work-experience")}
-              to="/#work-experience"
+              onClick={() => handleNavigation("/", "extracurriculars")}
+              to="/#extracurriculars"
             >
-              Work Experience
+              Extracurriculars
             </Link>
           </li>
           <li className="header-nav-item">

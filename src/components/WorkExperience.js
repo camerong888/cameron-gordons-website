@@ -8,6 +8,26 @@ function WorkExperience() {
       <section id="work-experience" className="workexperience">
         <h2 className="workexperience-title">Work Experience</h2>
         <ul style={{ listStyleType: "none" }}>
+        <li>
+            <h3>
+              <Link to="/Redwire">
+                {" "}
+                Hardware Engineering Internship at Redwire
+              </Link>
+            </h3>
+            <p>May 2024 - Aug 2024</p>
+            <p>Marlborough, MA</p>
+          </li>
+          <li>
+            <h3>
+              <Link to="/libertydefense">
+                {" "}
+                Altium Designer Consultant at Liberty Defense
+              </Link>
+            </h3>
+            <p>May 2023 - June 2023</p>
+            <p>Wilmington, MA</p>
+          </li>
           <li>
             <h3>
               <Link to="/Tesla">
@@ -27,26 +47,6 @@ function WorkExperience() {
             </h3>
             <p>Jan 2021 - Aug 2021</p>
             <p>Lawrence, MA</p>
-          </li>
-          <li>
-            <h3>
-              <Link to="/libertydefense">
-                {" "}
-                Altium Designer Consultant at Liberty Defense
-              </Link>
-            </h3>
-            <p>May 2023 - June 2023</p>
-            <p>Wilmington, MA</p>
-          </li>
-          <li>
-            <h3>
-              <Link to="/NER">
-                {" "}
-                Electrical Project Lead at Northeastern Electric Racing (NER)
-              </Link>
-            </h3>
-            <p>Sep 2019 - Aug 2023</p>
-            <p>Boston, MA</p>
           </li>
         </ul>
       </section>
