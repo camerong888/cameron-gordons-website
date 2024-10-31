@@ -4,7 +4,7 @@ import Car from "../../assets/ner/car.jpeg";
 import NERlogo from "../../assets/ner/nuelecracing.jpeg";
 
 function NER(props) {
-  const NERUrl = "https://" + "electricracing.northeastern.edu/";
+  const NERUrl = "https://electricracing.northeastern.edu/";
   return (
     <div className="ner-work">
       <h1>Electrical Project Lead at Northeastern Electric Racing</h1>

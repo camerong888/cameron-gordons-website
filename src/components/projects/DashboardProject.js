@@ -1,6 +1,6 @@
 import React from "react";
 import "./DashboardProject.css";
-import DashboardPicture from "../../assets/dashboardproject/dashboard.jpeg";
+import DashboardPicture from "../../assets/dashboardproject/dashboard.webp";
 
 function DashboardProject() {
   return (
