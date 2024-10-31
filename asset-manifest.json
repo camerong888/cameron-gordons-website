@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.2cf5d595.css",
-    "main.js": "/static/js/main.783ad3ce.js",
+    "main.js": "/static/js/main.48713b85.js",
     "static/js/787.f8a0dea2.chunk.js": "/static/js/787.f8a0dea2.chunk.js",
     "static/media/camerongordon.jpg": "/static/media/camerongordon.5559c06edb5960826220.jpg",
     "static/media/fabricatedpcb.png": "/static/media/fabricatedpcb.7e41a07d2b368baa0e7f.png",
@@ -11,8 +11,8 @@
     "static/media/sunsensor.png": "/static/media/sunsensor.05a2233cf761e4c87dd6.png",
     "static/media/connector.jpeg": "/static/media/connector.54541de924b642e636ef.jpeg",
     "static/media/exterior.jpeg": "/static/media/exterior.0db44a3bb1cf92edc637.jpeg",
-    "static/media/dashboard.jpeg": "/static/media/dashboard.09124ec30ad26b080eb0.jpeg",
     "static/media/SchematicPage2.jpg": "/static/media/SchematicPage2.f5e53bff4d7121102ad0.jpg",
+    "static/media/dashboard.webp": "/static/media/dashboard.839c7be1244e5d11d58b.webp",
     "static/media/SmartHandPCB.jpg": "/static/media/SmartHandPCB.3b6dd3b39921ca5a23ac.jpg",
     "static/media/page 1.png": "/static/media/page 1.5b6efaf70107fecb07ca.png",
     "static/media/page 2.png": "/static/media/page 2.aee2e4b24aaf78b4c801.png",
@@ -31,11 +31,11 @@
     "static/media/Liberty-Defense-Logo-Lg.png": "/static/media/Liberty-Defense-Logo-Lg.cacf240ec87afca07404.png",
     "index.html": "/index.html",
     "main.2cf5d595.css.map": "/static/css/main.2cf5d595.css.map",
-    "main.783ad3ce.js.map": "/static/js/main.783ad3ce.js.map",
+    "main.48713b85.js.map": "/static/js/main.48713b85.js.map",
     "787.f8a0dea2.chunk.js.map": "/static/js/787.f8a0dea2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2cf5d595.css",
-    "static/js/main.783ad3ce.js"
+    "static/js/main.48713b85.js"
   ]
 }
