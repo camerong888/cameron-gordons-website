@@ -21,13 +21,20 @@ import Tesla from "./components/workexperience/Tesla";
 import Redwire from "./components/workexperience/Redwire";
 import LibertyDefense from "./components/workexperience/LibertyDefense";
 import ScrollToTop from "./ScrollToTop";
+import { useState } from "react";
 
 function App() {
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   return (
-    <div className="App">
+    <div className="App" data-theme={theme}>
       <Router>
         <ScrollToTop />
-        <Header />
+        <Header toggleTheme={toggleTheme} currentTheme={theme} />
         <div className="content">
           <Routes>
             <Route

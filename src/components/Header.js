@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
 
-function Header() {
+function Header({ toggleTheme, currentTheme }) { // Props can remain, but button is removed
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -15,7 +15,10 @@ function Header() {
     setTimeout(() => {
       const element = document.getElementById(hash);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        const headerHeight = document.querySelector('header').offsetHeight || 80; 
+        const yOffset = -headerHeight - 20; 
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' }); 
       }
     }, 100);
   };

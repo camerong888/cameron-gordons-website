@@ -62,3 +62,13 @@ body {
   color: #0077B6;
   /* Adjust the hex color value to find the perfect shade between royal blue and cyan blue */
 }
+
+.content {
+  padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding-top: 60px;
+  }
+}

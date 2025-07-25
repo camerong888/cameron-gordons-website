@@ -1,11 +1,17 @@
 .header-container {
-  background-color: #003f5c;
+  background-color: var(--primary-color); 
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  position: relative;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease; 
 }
 
 .header-container a {
@@ -14,7 +20,7 @@
 
 .header-container a.header-title {
   position: relative;
-  color: #00a8e8;
+  color: var(--secondary-color); 
 }
 
 .header-container a.header-title:hover::after {
@@ -24,12 +30,12 @@
   right: 0;
   bottom: 0;
   height: 1px;
-  background-color: #00a8e8;
+  background-color: var(--secondary-color); 
 }
 
 .header-nav-link:hover {
   text-decoration: underline;
-  text-decoration-color: #00a8e8;
+  text-decoration-color: var(--secondary-color); 
 }
 
 .header-container.open .header-nav {
@@ -40,7 +46,7 @@
 .header-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  color: #00a8e8;
+  color: var(--secondary-color); 
   margin: 0;
   text-decoration: none;
 }
@@ -60,8 +66,13 @@
 .header-nav-link {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  color: #00a8e8;
+  color: var(--secondary-color); 
   text-decoration: none;
+  transition: color 0.2s ease; 
+}
+
+.header-nav-link:hover {
+  color: lighten(var(--secondary-color), 10%); 
 }
 
 /* .header-nav-link:hover {
@@ -78,7 +89,7 @@
   .header-nav {
     flex-direction: column;
     position: absolute;
-    background-color: #003f5c;
+    background-color: var(--primary-color); 
     top: 100%;
     left: 0;
     right: 0;
@@ -108,7 +119,7 @@
 .menu-toggle {
   background: none;
   border: none;
-  color: #00a8e8;
+  color: var(--secondary-color); 
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   cursor: pointer;
@@ -128,4 +139,3 @@
     display: block;
   }
 }
-
