@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="source-code">
-        <p>CAMERON GORDON © 2024. </p>
+        <p>CAMERON GORDON © 2025. </p>
         <p>All Rights Reserved.</p>
       </div>
     </footer>

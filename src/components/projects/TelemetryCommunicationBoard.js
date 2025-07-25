@@ -12,6 +12,7 @@ function TelemetryCommunicationBoard() {
         src={PCBpicture}
         alt="Telemetry Communication Board (2023 Comp Year)"
         className="tcb-picture"
+        loading="lazy"
       />
       <p>Here's some information about the project:</p>
       <ul style={{ listStyleType: "none" }}>
@@ -30,6 +31,7 @@ function TelemetryCommunicationBoard() {
           src={Pythonapplication_map}
           alt="Python Application - Map"
           className="map-picture"
+          loading="lazy"
         />
         <li>
           Developed custom Python application using PyQt6 to process live

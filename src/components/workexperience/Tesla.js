@@ -4,13 +4,13 @@ import Hq from "../../assets/tesla/hq.jpeg";
 import display from "../../assets/tesla/display.avif";
 
 function Tesla(props) {
-  const TeslaUrl = "https://" + "www.tesla.com/";
+  const TeslaUrl = "https://www.tesla.com/";
   return (
     <div className="tesla">
       <h1> Display Electrical Engineering Internship at Tesla </h1>
       <p>Jan 2022 - Aug 2022</p>
       <p>Palo Alto, CA</p>
-      <img src={Hq} alt="Hq" className="hq-picture" />
+      <img src={Hq} alt="Hq" className="hq-picture" loading="lazy"/>
       <p>Here's some information about the experience:</p>
       <ul>
         <li>
@@ -22,7 +22,7 @@ function Tesla(props) {
           innovative display PCBs that are now integral parts of mass-produced
           vehicles.
         </li>
-        <img src={display} alt="Hq" className="hq-picture" />
+        <img src={display} alt="Hq" className="hq-picture" loading="lazy"/>
         <li>
           Collaboration was a core element of my work, as I regularly interfaced
           with cross-functional teams. This was essential in ensuring that all

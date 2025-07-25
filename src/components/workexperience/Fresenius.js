@@ -4,13 +4,13 @@ import Logo from "../../assets/fresenius/NxStage.png";
 import nxone from "../../assets/fresenius/nxone.png";
 
 function Fresenius(props) {
-  const nxstageUrl = "https://" + "www.nxstage.com/";
+  const nxstageUrl = "https://www.nxstage.com/";
   return (
     <div className="fresenius">
       <h1>R&D Electrical Engineering Internship at Fresenius Medical Care</h1>
       <p>Jan 2021 - Aug 2021</p>
       <p>Lawrence, MA</p>
-      <img src={Logo} alt="Nxstage/Fresenius Logo" className="logo-picture" />
+      <img src={Logo} alt="Nxstage/Fresenius Logo" className="logo-picture" loading="lazy"/>
       <p>Here's some information about the experience:</p>
       <ul>
         <li>
@@ -20,7 +20,7 @@ function Fresenius(props) {
           dialysis machines, reflecting my commitment to healthcare innovation
           and technical excellence.
         </li>
-        <img src={nxone} alt="Nxstage/Fresenius Logo" className="logo-picture" />
+        <img src={nxone} alt="Nxstage/Fresenius Logo" className="logo-picture" loading="lazy"/>
         <li>
           Troubleshooting formed a significant part of my role, where I mastered
           the art of diagnosing noise sources within the circuitry. Armed with

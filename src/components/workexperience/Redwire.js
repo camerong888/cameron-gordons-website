@@ -4,13 +4,13 @@ import Logo from "../../assets/redwire/redwire-logo.jpg";
 import sunsensor from "../../assets/redwire/sunsensor.png";
 
 function Redwire(props) {
-  const RedwireUrl = "https://" + "www.redwirespace.com/";
+  const RedwireUrl = "https://www.redwirespace.com/";
   return (
     <div className="redwire">
       <h1> Hardware Engineering Internship at Redwire Space </h1>
       <p>May 2024 - Aug 2024</p>
       <p>Marlborough, MA</p>
-      <img src={Logo} alt="Logo" className="picture" />
+      <img src={Logo} alt="Logo" className="picture" loading="lazy"/>
       <p>Here's some information about the experience:</p>
       <ul>
         <li>
@@ -26,7 +26,7 @@ function Redwire(props) {
           optimization algorithms to accurately convert photodiode outputs into
           precise angle measurements.
         </li>
-        <img src={sunsensor} alt="Sun Sensor" className="picture" />
+        <img src={sunsensor} alt="Sun Sensor" className="picture" loading="lazy"/>
         <li>
           Collaboration was integral to my role, as I worked closely with
           cross-functional teams including test engineering, mechanical design,

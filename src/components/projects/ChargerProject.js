@@ -13,6 +13,7 @@ function ChargerProject() {
         src={InteriorPicture}
         alt="Charger Internals (2021 Comp Year)"
         className="charger-picture"
+        loading="lazy"
       />
       <p>Here's some information about the project:</p>
       <ul>
@@ -30,6 +31,18 @@ function ChargerProject() {
           proper communication with the onboard Battery Management System (BMS).
         </li>
       </ul>
+      <img
+        src={ExteriorPicture}
+        alt="Charger Internals (2021 Comp Year)"
+        className="charger-picture"
+        loading="lazy"
+      />
+      <img
+        src={ConnectorPicture}
+        alt="Charger Internals (2021 Comp Year)"
+        className="charger-picture"
+        loading="lazy"
+      />
     </div>
   );
 }

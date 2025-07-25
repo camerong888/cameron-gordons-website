@@ -14,6 +14,7 @@ function SmartHand() {
         src={SmartHandPCB}
         alt="SmartHand (Personal Embedded Device Project)"
         className="smarthand-picture"
+        loading="lazy"
       />
       <p>Here's some information about the project:</p>
       <ul style={{ listStyleType: "none" }}>
@@ -56,16 +57,18 @@ function SmartHand() {
           A USB-C connector & Bluetooth chip antenna enables IMU data collected
           on the device to be sent to an external node for processing.
         </li>
-        <img src={fabricatedpcb} alt="Hq" className="hq-picture" />
+        <img src={fabricatedpcb} alt="Hq" className="hq-picture" loading="lazy"/>
         <img
           src={SchematicPage1}
           alt="Schematic Page 1"
           className="schematic1-picture"
+          loading="lazy"
         />
         <img
           src={SchematicPage2}
           alt="Schematic Page 2"
           className="schematic2-picture"
+          loading="lazy"
         />
         <li>
           Custom-designed, wearable Smart Glove device schematic. It features

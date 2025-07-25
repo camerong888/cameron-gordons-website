@@ -40,3 +40,21 @@ p {
   --light-bg-color: #f7f7f7;
   --dark-bg-color: #222;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.3rem; }
+  h3 { font-size: 1.1rem; }
+  p { font-size: 0.9rem; }
+  .container { padding: 0 0.5rem; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem; }
+  .profile-picture { width: 250px; } /* Adjust profile pic in Home */
+}

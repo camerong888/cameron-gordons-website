@@ -2,10 +2,10 @@ import React from "react";
 import "./Contact.css";
 
 function Contact() {
-  const personalEmail = "camerong888" + "@" + "gmail.com";
-  const educationalEmail = "gordon.ca" + "@" + "northeastern.edu";
-  const linkedInUrl = "https://" + "www.linkedin.com" + "/in/gordonca/";
-  const githubUrl = "https://" + "www.github.com" + "/camerong888";
+  const personalEmail = "camerong888@gmail.com";
+  const educationalEmail = "gordon.ca@northeastern.edu";
+  const linkedInUrl = "https://www.linkedin.com/in/gordonca/";
+  const githubUrl = "https://www.github.com/camerong888";
 
   return (
     <div className="contact-container">

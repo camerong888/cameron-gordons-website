@@ -15,6 +15,7 @@ function IridiumIoTEmbeddedDevice() {
         src={IridiumPCB}
         alt="Iridium IoT Embedded Device (Advanced Embedded Device Project)"
         className="iridiumiotembeddeddevice-picture"
+        loading="lazy"
       />
       <p>Here's some details about the Iridium IoT project:</p>
       <ul style={{ listStyleType: "none" }}>
@@ -65,16 +66,19 @@ function IridiumIoTEmbeddedDevice() {
           src={SchematicPage1}
           alt="Schematic Page 1"
           className="schematic-picture"
+          loading="lazy"
         />
         <img
           src={SchematicPage2}
           alt="Schematic Page 2"
           className="schematic-picture"
+          loading="lazy"
         />
         <img
           src={SchematicPage3}
           alt="Schematic Page 3"
           className="schematic-picture"
+          loading="lazy"
         />
         <li>
           Design goals: robust satellite connectivity, compact form factor, and

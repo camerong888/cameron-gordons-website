@@ -11,6 +11,7 @@ function DashboardProject() {
         src={DashboardPicture}
         alt="Dashboard Project (2022 Comp Year)"
         className="dashboard-picture"
+        loading="lazy"
       />
       <p>Here's some information about the project:</p>
       <ul>
