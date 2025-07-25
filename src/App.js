@@ -49,8 +49,6 @@ function App() {
                   <Contact />
                 </main>
               }
-              index
-              
             />
             <Route
               path="/iridiumiotembeddeddevice"
@@ -59,7 +57,6 @@ function App() {
                   <IridiumIoTEmbeddedDevice />
                 </main>
               }
-              index
             />
             <Route
               path="/smarthand"
@@ -68,7 +65,6 @@ function App() {
                   <SmartHand />
                 </main>
               }
-              index
             />
             <Route
               path="/tcb"
@@ -77,7 +73,6 @@ function App() {
                   <TelemetryCommunicationBoard />
                 </main>
               }
-              index
             />
             <Route
               path="/dashboard"
@@ -86,7 +81,6 @@ function App() {
                   <DashboardProject />
                 </main>
               }
-              index
             />
             <Route
               path="/charger"
@@ -95,7 +89,6 @@ function App() {
                   <ChargerProject />
                 </main>
               }
-              index
             />
             <Route
               path="/libertydefense"
@@ -104,7 +97,6 @@ function App() {
                   <LibertyDefense />
                 </main>
               }
-              index
             />
             <Route
               path="/ner"
@@ -113,7 +105,6 @@ function App() {
                   <NER />
                 </main>
               }
-              index
             />
             <Route
               path="/tesla"
@@ -122,7 +113,6 @@ function App() {
                   <Tesla />
                 </main>
               }
-              index
             />
             <Route
               path="/redwire"
@@ -131,7 +121,6 @@ function App() {
                   <Redwire />
                 </main>
               }
-              index
             />
             <Route
               path="/fresenius"
@@ -140,7 +129,6 @@ function App() {
                   <Fresenius />
                 </main>
               }
-              index
             />
           </Routes>
         </div>
