@@ -116,10 +116,7 @@ function About() {
           viewport={{ once: true }}
           style={{ backgroundColor: 'var(--card-bg)', borderRadius: '8px', boxShadow: '0 4px 12px var(--shadow)', padding: '1.5rem', margin: '1rem 0' }}
         >
-          <h2 className="subsection-title" style={{ color: 'var(--primary-color)', marginBottom: '1rem' }}>Connect & Download</h2>
-          <p style={{ marginBottom: '0.5rem' }}>
-            Let's connect: <a href="https://www.linkedin.com/in/gordonca" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--secondary-color)', textDecoration: 'none' }}>LinkedIn</a> | <a href="https://github.com/camerong888" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--secondary-color)', textDecoration: 'none' }}>GitHub</a>
-          </p>
+          <h2 className="subsection-title" style={{ color: 'var(--primary-color)', marginBottom: '1rem' }}>Resume</h2>
           <p>
             Download my resume: <a href="/resume.pdf" download="Cameron_Gordon_Resume.pdf" style={{ color: 'var(--secondary-color)', textDecoration: 'none' }}>PDF</a>
           </p>
