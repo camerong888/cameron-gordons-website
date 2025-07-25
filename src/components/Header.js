@@ -12,6 +12,7 @@ function Header({ toggleTheme, currentTheme }) { // Props can remain, but button
 
   const handleNavigation = (path, hash) => {
     navigate(path);
+    setMenuOpen(false);
     setTimeout(() => {
       const element = document.getElementById(hash);
       if (element) {
@@ -31,8 +32,7 @@ function Header({ toggleTheme, currentTheme }) { // Props can remain, but button
       <span className="menu-toggle" onClick={handleMenuToggle}>
         &#9776;
       </span>
-      <nav>
-        <ul className="header-nav">
+      <ul className="header-nav">
           <li className="header-nav-item">
             <Link
               className="header-nav-link"
@@ -88,7 +88,6 @@ function Header({ toggleTheme, currentTheme }) { // Props can remain, but button
             </Link>
           </li>
         </ul>
-      </nav>
     </header>
   );
 }
