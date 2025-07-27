@@ -29,6 +29,21 @@ function WorkExperience() {
             style={{ backgroundColor: 'var(--card-bg)', borderRadius: '8px', boxShadow: '0 4px 12px var(--shadow)', padding: '1rem', transition: 'transform 0.3s' }}
           >
             <h3 style={{ marginBottom: '0.5rem' }}>
+              <Link to="/raytheon" style={{ color: 'var(--secondary-color)', textDecoration: 'none' }}>
+                Hardware Engineer at Raytheon
+              </Link>
+            </h3>
+            <p>January 2025 - Present</p>
+            <p>Woburn, MA</p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            style={{ backgroundColor: 'var(--card-bg)', borderRadius: '8px', boxShadow: '0 4px 12px var(--shadow)', padding: '1rem', transition: 'transform 0.3s' }}
+          >
+            <h3 style={{ marginBottom: '0.5rem' }}>
               <Link to="/redwire" style={{ color: 'var(--secondary-color)', textDecoration: 'none' }}>
                 Hardware Engineering Internship at Redwire
               </Link>
@@ -39,7 +54,7 @@ function WorkExperience() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
             style={{ backgroundColor: 'var(--card-bg)', borderRadius: '8px', boxShadow: '0 4px 12px var(--shadow)', padding: '1rem', transition: 'transform 0.3s' }}
           >
@@ -54,7 +69,7 @@ function WorkExperience() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
             style={{ backgroundColor: 'var(--card-bg)', borderRadius: '8px', boxShadow: '0 4px 12px var(--shadow)', padding: '1rem', transition: 'transform 0.3s' }}
           >
@@ -69,7 +84,7 @@ function WorkExperience() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
             style={{ backgroundColor: 'var(--card-bg)', borderRadius: '8px', boxShadow: '0 4px 12px var(--shadow)', padding: '1rem', transition: 'transform 0.3s' }}
           >

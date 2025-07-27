@@ -20,6 +20,7 @@ import Fresenius from "./components/workexperience/Fresenius";
 import Tesla from "./components/workexperience/Tesla";
 import Redwire from "./components/workexperience/Redwire";
 import LibertyDefense from "./components/workexperience/LibertyDefense";
+import Raytheon from "./components/workexperience/Raytheon";
 import ScrollToTop from "./ScrollToTop";
 import { useState } from "react";
 
@@ -95,6 +96,14 @@ function App() {
               element={
                 <main>
                   <LibertyDefense />
+                </main>
+              }
+            />
+            <Route
+              path="/raytheon"
+              element={
+                <main>
+                  <Raytheon />
                 </main>
               }
             />
