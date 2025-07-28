@@ -1,5 +1,7 @@
 .raytheon-container {
-  /* Add container styles here */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 .raytheon-title {
@@ -7,6 +9,35 @@
   font-weight: 700;
   text-align: center;
   margin-bottom: 1rem;
+  font-size: 2.5rem;
 }
 
-/* Add more styles as needed */ 
+.raytheon-container h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+.raytheon-container p, .raytheon-container li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.raytheon-container ul {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .raytheon-container {
+    padding: 1rem;
+  }
+
+  .raytheon-title {
+    font-size: 2rem;
+  }
+
+  .raytheon-container h2 {
+    font-size: 1.5rem;
+  }
+} 

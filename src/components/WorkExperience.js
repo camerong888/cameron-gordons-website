@@ -30,7 +30,7 @@ function WorkExperience() {
           >
             <h3 style={{ marginBottom: '0.5rem' }}>
               <Link to="/raytheon" style={{ color: 'var(--secondary-color)', textDecoration: 'none' }}>
-                Hardware Engineer at Raytheon
+                Hardware Engineer II at Raytheon
               </Link>
             </h3>
             <p>January 2025 - Present</p>

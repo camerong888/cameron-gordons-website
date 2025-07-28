@@ -32,7 +32,7 @@ function Header({ toggleTheme, currentTheme }) { // Props can remain, but button
       <span className="menu-toggle" onClick={handleMenuToggle}>
         &#9776;
       </span>
-      <ul className="header-nav">
+        <ul className="header-nav">
           <li className="header-nav-item">
             <Link
               className="header-nav-link"
