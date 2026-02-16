@@ -118,7 +118,7 @@ function About() {
         >
           <h2 className="subsection-title" style={{ color: 'var(--primary-color)', marginBottom: '1rem' }}>Resume</h2>
           <p>
-            Download my resume: <a href="/resume.pdf" download="Cameron_Gordon_Resume.pdf" style={{ color: 'var(--secondary-color)', textDecoration: 'none' }}>PDF</a>
+            Download my resume: <a href="/CameronGordon_Resume.pdf" download="Cameron_Gordon_Resume.pdf" style={{ color: 'var(--secondary-color)', textDecoration: 'none' }}>PDF</a>
           </p>
         </motion.div>
       </section>
