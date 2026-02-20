@@ -10,7 +10,7 @@ function IridiumIoTEmbeddedDevice() {
   return (
     <div className="iridiumiotembeddeddevice">
       <h1>Iridium IoT Embedded Device</h1>
-      <p>2023 Personal Embedded Device Project</p>
+      <p>2024 Personal Embedded Device Project</p>
       <img
         src={IridiumPCB}
         alt="Iridium IoT Embedded Device (Advanced Embedded Device Project)"

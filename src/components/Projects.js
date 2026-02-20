@@ -13,7 +13,7 @@ function Projects() {
             <h3 style={{ marginBottom: '0.5rem' }}>
               <Link to="/iridiumiotembeddeddevice" style={{ color: 'var(--secondary-color)', textDecoration: 'none' }}>Iridium IoT Embedded Device</Link>
             </h3>
-            <p>2023 Personal Embedded Device Project</p>
+            <p>2024 Personal Embedded Device Project</p>
           </div>
           <div style={{ backgroundColor: 'var(--card-bg)', borderRadius: '8px', boxShadow: '0 4px 12px var(--shadow)', padding: '1rem', transition: 'transform 0.3s' }}>
             <h3 style={{ marginBottom: '0.5rem' }}>
