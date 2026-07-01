@@ -1,51 +1,62 @@
-# Cameron Gordon's Personal Website
+# camerongordon.io
 
-This repository contains the source code for Cameron Gordon's personal website. The website is built using React, and it's hosted on GitHub Pages.
+Cameron Gordon's portfolio — a static site built with **Next.js 15** (App Router,
+static export), **Tailwind CSS v4**, **TypeScript**, and **Framer Motion**,
+deployed to **GitHub Pages** via GitHub Actions.
 
-## Features
-
-- About section: Brief introduction to Cameron Gordon.
-- Projects section: Showcases Cameron's projects.
-- Work Experience section: Displays Cameron's work experience.
-- Contact section: Provides contact information and a link to Cameron's LinkedIn profile.
-- Source code link: Directs users to the GitHub repository of the website.
-
-## Installation and Setup
-
-1. Clone the repository to your local machine:
+## Development
 
 ```bash
-git clone https://github.com/camerong888/cameron-gordons-website.git
-
-2. Navigate to the project directory:
-
-cd cameron-gordons-website
-
-3. Install the required dependencies:
-
 npm install
+npm run dev        # http://localhost:3000
+```
 
-4. Start the development server:
+## Content
 
-npm start
+All site content lives in typed data files — no copy is hardcoded in components:
 
-The website should now be running on http://localhost:3000/.
+| File | Contents |
+|---|---|
+| `src/data/experience.ts` | Work experience entries (drives timeline + detail pages) |
+| `src/data/projects.ts` | Project case studies |
+| `src/data/skills.ts` | Skills matrix domains |
+| `src/data/extracurriculars.ts` | Northeastern Electric Racing |
+| `src/data/site.ts` | Nav, socials, metadata, GA ID, Formspree ID |
+| `src/data/redirects.ts` | Legacy `/#/route` → new path map |
+
+Adding a project = one entry in `projects.ts` + images in `assets-src/<slug>/`
+(then run the image pipeline).
+
+## Images
+
+Original images live in `assets-src/` (never shipped). Generate the optimized
+WebP variants and manifest with:
+
+```bash
+npm run optimize-images
+```
+
+This writes `public/images/**` and `src/data/image-manifest.json`, which the
+`<Picture>` component consumes. Output is committed so CI does no image work.
+The script enforces a 400KB-per-file budget.
+
+## Contact form
+
+`src/data/site.ts` → `formspreeId`. While empty, the contact section renders a
+mailto fallback. Create a free form at [formspree.io](https://formspree.io),
+paste the ID, and the full form activates.
 
 ## Deployment
 
-To deploy the latest changes to the live website on GitHub Pages, follow these steps:
+Pushes to `master` trigger `.github/workflows/deploy.yml`, which builds the
+static export (`out/`) and deploys it to GitHub Pages at
+[camerongordon.io](https://camerongordon.io).
 
-1. Commit and push your local changes to the main branch on GitHub:
+One-time setup: repo **Settings → Pages → Source = "GitHub Actions"**.
 
-git add .
-git commit -m "Your commit message"
-git push
+## Build
 
-2. Deploy the updated version of your project to the gh-pages branch:
-
-npm run deploy
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
-
+```bash
+npm run build      # static export to out/
+npm run serve      # preview the export locally
+```

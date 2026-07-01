@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* Dark-first palette: :root is the dark "PCB substrate" theme,
+   light mode is the override via next-themes' data-theme attribute. */
+:root {
+  --bg: #0a0f14;
+  --surface: #0f161e;
+  --surface-2: #151f29;
+  --ink: #e6edf3;
+  --muted: #94a3b1;
+  --copper: #e8a33d;
+  --copper-soft: rgba(232, 163, 61, 0.14);
+  --signal: #2dd4a8;
+  --signal-soft: rgba(45, 212, 168, 0.12);
+  --line: rgba(230, 237, 243, 0.1);
+  --grid-line: rgba(230, 237, 243, 0.035);
+}
+
+[data-theme="light"] {
+  --bg: #f6f4f0;
+  --surface: #ffffff;
+  --surface-2: #eef0ee;
+  --ink: #17222c;
+  --muted: #56636f;
+  --copper: #a5660a;
+  --copper-soft: rgba(165, 102, 10, 0.1);
+  --signal: #0c7a63;
+  --signal-soft: rgba(12, 122, 99, 0.1);
+  --line: rgba(23, 34, 44, 0.13);
+  --grid-line: rgba(23, 34, 44, 0.045);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-copper: var(--copper);
+  --color-copper-soft: var(--copper-soft);
+  --color-signal: var(--signal);
+  --color-signal-soft: var(--signal-soft);
+  --color-line: var(--line);
+  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  /* Faint engineering-grid texture */
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+::selection {
+  background: var(--copper);
+  color: #0a0f14;
+}
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

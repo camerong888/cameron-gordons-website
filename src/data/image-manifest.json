@@ -1,0 +1,296 @@
+{
+  "cameron-gordon": {
+    "widths": [
+      480,
+      960
+    ],
+    "width": 3024,
+    "height": 4032,
+    "aspectRatio": 0.75
+  },
+  "ev-charger/connector": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 4032,
+    "height": 3024,
+    "aspectRatio": 1.3333
+  },
+  "ev-charger/exterior": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 3024,
+    "height": 2420,
+    "aspectRatio": 1.2496
+  },
+  "ev-charger/interior": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 3024,
+    "height": 4032,
+    "aspectRatio": 0.75
+  },
+  "ev-dashboard/dashboard": {
+    "widths": [
+      480,
+      960
+    ],
+    "width": 1400,
+    "height": 932,
+    "aspectRatio": 1.5021
+  },
+  "fresenius/nxone": {
+    "widths": [
+      480
+    ],
+    "width": 540,
+    "height": 619,
+    "aspectRatio": 0.8724
+  },
+  "fresenius/nxstage-logo": {
+    "widths": [
+      480,
+      960
+    ],
+    "width": 1488,
+    "height": 887,
+    "aspectRatio": 1.6776
+  },
+  "headshot": {
+    "widths": [
+      480,
+      960
+    ],
+    "width": 4921,
+    "height": 4000,
+    "aspectRatio": 1.2303
+  },
+  "iridium-iot/fabricated-pcb": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 1849,
+    "height": 2643,
+    "aspectRatio": 0.6996
+  },
+  "iridium-iot/pcb-render-alt": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 1806,
+    "height": 2406,
+    "aspectRatio": 0.7506
+  },
+  "iridium-iot/pcb-render": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 1806,
+    "height": 2406,
+    "aspectRatio": 0.7506
+  },
+  "iridium-iot/schematic-page-1": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 2478,
+    "height": 1602,
+    "aspectRatio": 1.5468
+  },
+  "iridium-iot/schematic-page-2": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 2476,
+    "height": 1608,
+    "aspectRatio": 1.5398
+  },
+  "iridium-iot/schematic-page-3": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 2476,
+    "height": 1606,
+    "aspectRatio": 1.5417
+  },
+  "liberty-defense/hexwave": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 1800,
+    "height": 922,
+    "aspectRatio": 1.9523
+  },
+  "liberty-defense/liberty-defense-logo": {
+    "widths": [
+      480,
+      960
+    ],
+    "width": 1168,
+    "height": 530,
+    "aspectRatio": 2.2038
+  },
+  "ner/car": {
+    "widths": [
+      480
+    ],
+    "width": 768,
+    "height": 512,
+    "aspectRatio": 1.5
+  },
+  "ner/ner-logo-white": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 2200,
+    "height": 2200,
+    "aspectRatio": 1
+  },
+  "ner/team": {
+    "widths": [
+      480
+    ],
+    "width": 738,
+    "height": 731,
+    "aspectRatio": 1.0096
+  },
+  "raytheon/raytheon-logo": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 2560,
+    "height": 767,
+    "aspectRatio": 3.3377
+  },
+  "raytheon/sbx": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 3000,
+    "height": 1948,
+    "aspectRatio": 1.54
+  },
+  "redwire/redwire-logo": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 1920,
+    "height": 1080,
+    "aspectRatio": 1.7778
+  },
+  "redwire/sun-sensor": {
+    "widths": [
+      480,
+      960
+    ],
+    "width": 1568,
+    "height": 1362,
+    "aspectRatio": 1.1512
+  },
+  "smart-hand/fabricated-pcb": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 3024,
+    "height": 2187,
+    "aspectRatio": 1.3827
+  },
+  "smart-hand/pcb-render": {
+    "widths": [
+      480,
+      960
+    ],
+    "width": 1050,
+    "height": 1200,
+    "aspectRatio": 0.875
+  },
+  "smart-hand/schematic-page-1": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 2414,
+    "height": 1560,
+    "aspectRatio": 1.5474
+  },
+  "smart-hand/schematic-page-2": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 2414,
+    "height": 1564,
+    "aspectRatio": 1.5435
+  },
+  "telemetry-communication-board/board": {
+    "widths": [
+      480,
+      960
+    ],
+    "width": 1161,
+    "height": 1280,
+    "aspectRatio": 0.907
+  },
+  "telemetry-communication-board/map-view": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 2156,
+    "height": 1682,
+    "aspectRatio": 1.2818
+  },
+  "tesla/display": {
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 1920,
+    "height": 1080,
+    "aspectRatio": 1.7778
+  },
+  "tesla/hq": {
+    "widths": [
+      480
+    ],
+    "width": 828,
+    "height": 516,
+    "aspectRatio": 1.6047
+  }
+}
