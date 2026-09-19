@@ -7,7 +7,8 @@
     "build": "next build",
     "lint": "next lint",
     "optimize-images": "node scripts/optimize-images.mjs",
-    "serve": "npx serve out"
+    "serve": "npx serve out",
+    "og": "node scripts/generate-og.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.23.9",

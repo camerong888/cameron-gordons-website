@@ -74,16 +74,16 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${site.gaId}`}
-          strategy="afterInteractive"
-        />
-        <Script id="ga4" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${site.gaId}');`}
-        </Script>
+        {site.cfBeaconToken && (
+          // Mirrors Cloudflare's own snippet: a module script (so legacy
+          // browsers skip it) that reads its token from data-cf-beacon.
+          <Script
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            type="module"
+            strategy="afterInteractive"
+            data-cf-beacon={JSON.stringify({ token: site.cfBeaconToken })}
+          />
+        )}
       </body>
     </html>
   );

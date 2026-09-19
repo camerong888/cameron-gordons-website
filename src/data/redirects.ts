@@ -1,5 +1,5 @@
 /**
- * Legacy HashRouter routes (camerongordon.io/#/foo) → new static paths.
+ * Legacy HashRouter routes (the old camerongordon.io/#/foo) → new static paths.
  * Consumed by HashRedirect on the client; static export has no server redirects.
  */
 export const hashRedirects: Record<string, string> = {

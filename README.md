@@ -1,4 +1,4 @@
-# camerongordon.io
+# cameron.gordongames.com
 
 Cameron Gordon's portfolio — a static site built with **Next.js 15** (App Router,
 static export), **Tailwind CSS v4**, **TypeScript**, and **Framer Motion**,
@@ -50,7 +50,13 @@ paste the ID, and the full form activates.
 
 Pushes to `master` trigger `.github/workflows/deploy.yml`, which builds the
 static export (`out/`) and deploys it to GitHub Pages at
-[camerongordon.io](https://camerongordon.io).
+[cameron.gordongames.com](https://cameron.gordongames.com).
+
+The custom domain lives in **Settings → Pages**, not in a `CNAME` file: with a
+GitHub Actions build, GitHub ignores `CNAME` files. DNS is a single **DNS-only**
+(grey cloud) `CNAME cameron → camerong888.github.io` in the gordongames.com
+Cloudflare zone — it must stay unproxied, or GitHub cannot issue or renew the
+certificate. The site previously lived at camerongordon.io (lapsed Sept 2026).
 
 One-time setup: repo **Settings → Pages → Source = "GitHub Actions"**.
 
