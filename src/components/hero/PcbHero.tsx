@@ -17,12 +17,15 @@ export default function PcbHero() {
   const reduce = useReducedMotion() ?? false;
 
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden">
+    <section className="pcb-hero relative flex min-h-[100svh] items-center overflow-hidden">
       {/* The board. It masks itself away from the copy (see globals.css), so
           no readability overlay is needed on top of it. */}
       <CircuitField />
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-16 pt-28 sm:px-8">
+      {/* `--hero-pad` comes from .pcb-hero in globals.css: 4rem while the
+          board sits beside the copy, and the height of the board's band once
+          it moves to the foot of the hero on narrower screens. */}
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-(--hero-pad) pt-28 sm:px-8">
         <motion.p
           className="font-mono text-xs uppercase tracking-[0.25em] text-signal sm:text-sm"
           {...fadeUp(reduce, 0)}
