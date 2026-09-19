@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Button from "@/components/ui/Button";
-import CircuitBoardSvg from "./CircuitBoardSvg";
+import CircuitField from "./CircuitField";
 
 const fadeUp = (reduce: boolean, delay: number) =>
   reduce
@@ -18,15 +18,9 @@ export default function PcbHero() {
 
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden">
-      {/* Trace art: right half on desktop, faint full-bleed on mobile */}
-      <CircuitBoardSvg className="pointer-events-none absolute -right-24 top-1/2 hidden h-[130%] w-auto -translate-y-1/2 opacity-70 lg:block" />
-      <CircuitBoardSvg className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25 lg:hidden" />
-
-      {/* Readability gradient over the art */}
-      <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-bg via-bg/80 to-transparent"
-        aria-hidden
-      />
+      {/* The board. It masks itself away from the copy (see globals.css), so
+          no readability overlay is needed on top of it. */}
+      <CircuitField />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pb-16 pt-28 sm:px-8">
         <motion.p
