@@ -17,7 +17,7 @@ export const site = {
    * Replaced Google Analytics (G-RNG371LV3P) in Sept 2026: on a subdomain its
    * cookie would have scoped to all of gordongames.com.
    */
-  cfBeaconToken: "",
+  cfBeaconToken: "b9489e7699374fefafff0155429f5d43",
   /**
    * Formspree form ID (e.g. "mabcdefg"). Leave empty to fall back to a
    * mailto: link until the form is created at https://formspree.io.
