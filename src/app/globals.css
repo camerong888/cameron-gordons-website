@@ -159,15 +159,23 @@ body::before {
    mask, so the board never competes with the headline — no overlay needed.
 
    Sizing is what keeps the copy clear. The board scales with the hero's
-   height (10:9 box, viewBox 1000×900), so its routing channel sits
-   426 units × scale from the right edge. The headline ends ~733px into a
-   1152px column, so the channel clears it while
-   scale <= (100vw - 426px) / 852 — hence the height cap below. */
+   height (10:9 box, viewBox 1000×900), and the copper nearest the copy — the
+   routing channel's vias — sits 440 units × scale from the right edge. The
+   headline's first line is 738px long, and two caps hold 36px of air between
+   it and those vias:
+   - from 1152px up the column is centered, so the line ends at 50vw + 194px
+     and scale <= (100vw - 460px) / 880;
+   - below that the column hugs the left edge, the line ends at 770px, and
+     scale <= (100vw - 806px) / 440. */
 .circuit-field {
   position: absolute;
   top: 50%;
   right: 0;
-  height: min(100%, calc((100vw - 426px) * 1.056));
+  height: min(
+    100%,
+    calc((100vw - 460px) * 1.0227),
+    calc((100vw - 806px) * 2.0455)
+  );
   aspect-ratio: 10 / 9;
   transform: translateY(-50%);
   pointer-events: none;
@@ -192,6 +200,12 @@ body::before {
   stroke-width: 1.25;
 }
 
+/* The halo blooms only once the copper beneath it has drawn in — shown any
+   earlier it reads as a smudged ghost of the board. */
+.cf-halo {
+  opacity: 0;
+  animation: cf-fade 1.4s ease-out 1.5s forwards;
+}
 .cf-halo path {
   stroke: var(--cf-halo);
   stroke-width: 5;
@@ -303,46 +317,83 @@ body::before {
   }
 }
 
-/* Below 1280px the copy and the board no longer fit side by side, so the
-   board fills the hero behind the copy instead: quieter, cleared around the
-   text by a radial mask, with fewer nets carrying current. */
-@media (max-width: 1279px) {
+/* Below 1280px (Tailwind's xl) the width cap starts to bite, so the board is
+   shorter than the hero and its top and bottom routing bands would drift into
+   the headline's rows. The rule stays the same — no copper behind text — so
+   the mask becomes a spotlight on the column right of the routing channel:
+   memory, FPGA, flash and the edge connector. It is an ellipse centered at
+   (830, 450) with radii 340 × 420 board units: the channel's vias sit just
+   inside it, and the risers and drops dissolve along their vertical runs,
+   before they would turn toward the copy. */
+@media (width < 80rem) {
   .circuit-field {
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    aspect-ratio: auto;
-    transform: none;
-    opacity: 0.5;
-    -webkit-mask-image:
-      radial-gradient(ellipse 105% 62% at 16% 54%, transparent 46%, #000 100%),
-      linear-gradient(to bottom, transparent 0, #000 10%, #000 86%, transparent 100%);
-    mask-image:
-      radial-gradient(ellipse 105% 62% at 16% 54%, transparent 46%, #000 100%),
-      linear-gradient(to bottom, transparent 0, #000 10%, #000 86%, transparent 100%);
+    -webkit-mask-image: radial-gradient(
+      ellipse 34% 46.7% at 83% 50%,
+      #000 80%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 34% 46.7% at 83% 50%,
+      #000 80%,
+      transparent 100%
+    );
   }
   .cf-current [data-desktop-only] {
     display: none;
   }
 }
 
-/* Phones: the copy fills the hero, so the board moves to its foot. The FPGA's
-   top edge sits at 38.9% of the board's height (y = 350 of 900); shifting the
-   board by (61.1% - 52px) parks that edge 52px above the hero's bottom, inside
-   the hero's own 64px bottom padding — so the chip peeks up beneath the
-   buttons at any screen height, and the mask hides everything above it. */
-@media (max-width: 640px) {
+/* Below 67rem (1072px) that column would shrink past 60% scale, so the board
+   becomes a band at the foot of the hero instead — the FPGA, its stubs, its
+   decoupling caps and the edge connector — and the hero reserves the room:
+   PcbHero pads its copy by `--hero-pad`.
+
+   Geometry, in board units (viewBox 1000×900): the FPGA is 200 wide, its top
+   edge 350 down (38.89% of the height) and its bottom edge 550 down (61.11%),
+   i.e. 0.55 × the board's width above the board's bottom edge. So
+   `bottom: band − 0.55w` parks the chip's top exactly `--cf-band` above the
+   hero's bottom edge at any board size. The mask keeps the chip's rows and
+   the caps 20–29 units above and below it, then fades the nets that run on
+   toward the memory and the flash, finishing 4px inside the hero's edge. */
+
+/* While the board sits beside the copy the hero keeps its usual padding. */
+.pcb-hero {
+  --hero-pad: 4rem;
+}
+
+@media (width < 67rem) {
+  .pcb-hero {
+    --cf-w: clamp(600px, 170vw, 900px);
+    --cf-band: calc(var(--cf-w) * 0.2 + 54px);
+    /* the band, its 46px fade-in, and a clear gap under the buttons */
+    --hero-pad: calc(var(--cf-band) + 64px);
+  }
   .circuit-field {
-    transform: translateY(calc(61.1% - 52px));
-    opacity: 0.75;
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      transparent calc(38.9% - 14px),
-      #000 calc(38.9% - 2px)
-    );
-    mask-image: linear-gradient(to bottom, transparent calc(38.9% - 14px), #000 calc(38.9% - 2px));
-    -webkit-mask-composite: source-over;
-    mask-composite: add;
+    top: auto;
+    right: 0;
+    bottom: calc(var(--cf-band) - var(--cf-w) * 0.55);
+    width: var(--cf-w);
+    height: calc(var(--cf-w) * 0.9);
+    aspect-ratio: auto;
+    transform: none;
+    -webkit-mask-image:
+      linear-gradient(
+        to bottom,
+        transparent calc(38.89% - 46px),
+        #000 calc(38.89% - 22px),
+        #000 calc(61.11% + 22px),
+        transparent calc(61.11% + 50px)
+      ),
+      linear-gradient(to left, #000 58%, transparent 96%);
+    mask-image:
+      linear-gradient(
+        to bottom,
+        transparent calc(38.89% - 46px),
+        #000 calc(38.89% - 22px),
+        #000 calc(61.11% + 22px),
+        transparent calc(61.11% + 50px)
+      ),
+      linear-gradient(to left, #000 58%, transparent 96%);
   }
 }
 
@@ -352,7 +403,8 @@ body::before {
     animation: none;
     stroke-dashoffset: 0;
   }
-  .cf-parts {
+  .cf-parts,
+  .cf-halo {
     animation: none;
     opacity: 1;
   }
