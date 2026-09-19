@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { hashRedirects } from "@/data/redirects";
 
 /**
- * Maps legacy HashRouter URLs (camerongordon.io/#/tesla) to their new
+ * Maps legacy HashRouter URLs (the old camerongordon.io/#/tesla) to their new
  * static routes. Hash fragments never reach the server, so this must
  * run on the client.
  */
