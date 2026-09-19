@@ -13,7 +13,26 @@
   --signal: #2dd4a8;
   --signal-soft: rgba(45, 212, 168, 0.12);
   --line: rgba(230, 237, 243, 0.1);
-  --grid-line: rgba(230, 237, 243, 0.035);
+
+  /* Substrate: a CAD canvas — fine and major grid, two faint light sources */
+  --grid-minor: rgba(230, 237, 243, 0.024);
+  --grid-major: rgba(230, 237, 243, 0.05);
+  --glow-copper: rgba(232, 163, 61, 0.075);
+  --glow-signal: rgba(45, 212, 168, 0.06);
+
+  /* Circuit field (hero board) */
+  --cf-copper: rgba(232, 163, 61, 0.52);
+  --cf-inner: rgba(230, 237, 243, 0.07);
+  --cf-halo: rgba(232, 163, 61, 0.2);
+  --cf-part-fill: rgba(12, 18, 25, 0.86);
+  --cf-part-stroke: rgba(230, 237, 243, 0.2);
+  --cf-die: rgba(230, 237, 243, 0.05);
+  --cf-ball: rgba(230, 237, 243, 0.14);
+  --cf-pad: rgba(232, 163, 61, 0.72);
+  --cf-pulse: #2dd4a8;
+  --cf-pulse-hot: #dcfff6;
+  --cf-power: #f1b455;
+  --cf-power-hot: #fff1d6;
 }
 
 [data-theme="light"] {
@@ -27,7 +46,24 @@
   --signal: #0c7a63;
   --signal-soft: rgba(12, 122, 99, 0.1);
   --line: rgba(23, 34, 44, 0.13);
-  --grid-line: rgba(23, 34, 44, 0.045);
+
+  --grid-minor: rgba(23, 34, 44, 0.03);
+  --grid-major: rgba(23, 34, 44, 0.06);
+  --glow-copper: rgba(165, 102, 10, 0.07);
+  --glow-signal: rgba(12, 122, 99, 0.06);
+
+  --cf-copper: rgba(165, 102, 10, 0.5);
+  --cf-inner: rgba(23, 34, 44, 0.08);
+  --cf-halo: rgba(165, 102, 10, 0.16);
+  --cf-part-fill: rgba(255, 255, 255, 0.82);
+  --cf-part-stroke: rgba(23, 34, 44, 0.26);
+  --cf-die: rgba(23, 34, 44, 0.05);
+  --cf-ball: rgba(23, 34, 44, 0.16);
+  --cf-pad: rgba(165, 102, 10, 0.78);
+  --cf-pulse: #0c7a63;
+  --cf-pulse-hot: #12b391;
+  --cf-power: #a5660a;
+  --cf-power-hot: #d48a1a;
 }
 
 @theme inline {
@@ -51,16 +87,44 @@ html {
   scroll-padding-top: 5rem;
 }
 
-body {
+html {
   background-color: var(--bg);
+}
+
+/* The body stays transparent: an opaque body background would paint over the
+   substrate layer below, which sits at z-index -1 in the root context. */
+body {
   color: var(--ink);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
-  /* Faint engineering-grid texture */
+}
+
+/* Substrate: one fixed, static layer behind the whole page — a fine grid with
+   every fifth line heavier, like a layout canvas, lit from two corners and
+   vignetted so it recedes toward the fold instead of tiling flat forever.
+   Static gradients on a fixed layer cost nothing to scroll. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 44px 44px;
+    radial-gradient(62rem 38rem at 92% -6%, var(--glow-signal), transparent 62%),
+    radial-gradient(52rem 34rem at -8% 12%, var(--glow-copper), transparent 60%),
+    linear-gradient(var(--grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(var(--grid-minor) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px);
+  background-size:
+    auto,
+    auto,
+    120px 120px,
+    120px 120px,
+    24px 24px,
+    24px 24px;
+  -webkit-mask-image: radial-gradient(130% 95% at 50% 0%, #000 40%, rgba(0, 0, 0, 0.35) 100%);
+  mask-image: radial-gradient(130% 95% at 50% 0%, #000 40%, rgba(0, 0, 0, 0.35) 100%);
 }
 
 ::selection {
@@ -84,5 +148,215 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Circuit field — the hero board (components/hero/CircuitField.tsx)   */
+/* ------------------------------------------------------------------ */
+
+/* Anchored to the right of the hero and dissolved toward the copy with a
+   mask, so the board never competes with the headline — no overlay needed.
+
+   Sizing is what keeps the copy clear. The board scales with the hero's
+   height (10:9 box, viewBox 1000×900), so its routing channel sits
+   426 units × scale from the right edge. The headline ends ~733px into a
+   1152px column, so the channel clears it while
+   scale <= (100vw - 426px) / 852 — hence the height cap below. */
+.circuit-field {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  height: min(100%, calc((100vw - 426px) * 1.056));
+  aspect-ratio: 10 / 9;
+  transform: translateY(-50%);
+  pointer-events: none;
+  -webkit-mask-image:
+    linear-gradient(to left, #000 26%, rgba(0, 0, 0, 0.5) 52%, transparent 86%),
+    linear-gradient(to bottom, transparent 0, #000 16%, #000 80%, transparent 100%);
+  mask-image:
+    linear-gradient(to left, #000 26%, rgba(0, 0, 0, 0.5) 52%, transparent 86%),
+    linear-gradient(to bottom, transparent 0, #000 16%, #000 80%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.circuit-field path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cf-inner path {
+  stroke: var(--cf-inner);
+  stroke-width: 1.25;
+}
+
+.cf-halo path {
+  stroke: var(--cf-halo);
+  stroke-width: 5;
+}
+
+/* Top-layer copper draws in once, net by net. Every path is normalized to
+   1000 dash units (pathLength), so one keyframe serves them all. */
+.cf-copper path {
+  stroke: var(--cf-copper);
+  stroke-width: 1.5;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: cf-draw 1.5s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation-delay: calc(var(--i) * 40ms + 120ms);
+}
+.cf-copper .cf-power {
+  stroke-width: 3.25;
+}
+
+.cf-parts {
+  opacity: 0;
+  animation: cf-fade 0.9s ease-out 0.45s forwards;
+}
+.cf-part {
+  fill: var(--cf-part-fill);
+  stroke: var(--cf-part-stroke);
+  stroke-width: 1.25;
+}
+.cf-die {
+  fill: var(--cf-die);
+  stroke: var(--cf-part-stroke);
+  stroke-width: 1;
+}
+.cf-ball {
+  fill: var(--cf-ball);
+}
+.cf-pad,
+.cf-finger {
+  fill: var(--cf-pad);
+}
+.cf-pin1 {
+  fill: var(--cf-pulse);
+  opacity: 0.85;
+  stroke: none;
+}
+.cf-via-ring {
+  fill: var(--bg);
+  stroke: var(--cf-pad);
+  stroke-width: 1.5;
+}
+.cf-via-hole {
+  fill: var(--cf-pad);
+}
+
+/* Current: four dashes share one leading edge — a wide faint glow, a dim
+   tail, a brighter body, a hot tip — and ride the trace by animating the
+   dash offset, so the streak bends with every corner. Butt caps, because a
+   round cap would paint the zero-length spacer dash as a dot. */
+.cf-current path {
+  stroke: var(--cf-pulse);
+  stroke-linecap: butt;
+  stroke-dashoffset: var(--from);
+  animation: cf-flow var(--dur) linear var(--delay) infinite backwards;
+}
+.cf-current [data-tone="power"] path {
+  stroke: var(--cf-power);
+}
+.cf-current .cf-glow {
+  stroke-width: 9;
+  opacity: 0.1;
+}
+.cf-current .cf-tail {
+  stroke-width: 1.6;
+  opacity: 0.32;
+}
+.cf-current .cf-body {
+  stroke-width: 2;
+  opacity: 0.8;
+}
+.cf-current .cf-head {
+  stroke: var(--cf-pulse-hot);
+  stroke-width: 2.4;
+}
+.cf-current [data-tone="power"] .cf-head {
+  stroke: var(--cf-power-hot);
+}
+
+/* Off screen, everything holds still. */
+.circuit-field[data-live="false"] * {
+  animation-play-state: paused;
+}
+
+@keyframes cf-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes cf-fade {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes cf-flow {
+  from {
+    stroke-dashoffset: var(--from);
+  }
+  to {
+    stroke-dashoffset: var(--to);
+  }
+}
+
+/* Below 1280px the copy and the board no longer fit side by side, so the
+   board fills the hero behind the copy instead: quieter, cleared around the
+   text by a radial mask, with fewer nets carrying current. */
+@media (max-width: 1279px) {
+  .circuit-field {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    transform: none;
+    opacity: 0.5;
+    -webkit-mask-image:
+      radial-gradient(ellipse 105% 62% at 16% 54%, transparent 46%, #000 100%),
+      linear-gradient(to bottom, transparent 0, #000 10%, #000 86%, transparent 100%);
+    mask-image:
+      radial-gradient(ellipse 105% 62% at 16% 54%, transparent 46%, #000 100%),
+      linear-gradient(to bottom, transparent 0, #000 10%, #000 86%, transparent 100%);
+  }
+  .cf-current [data-desktop-only] {
+    display: none;
+  }
+}
+
+/* Phones: the copy fills the hero, so the board moves to its foot. The FPGA's
+   top edge sits at 38.9% of the board's height (y = 350 of 900); shifting the
+   board by (61.1% - 52px) parks that edge 52px above the hero's bottom, inside
+   the hero's own 64px bottom padding — so the chip peeks up beneath the
+   buttons at any screen height, and the mask hides everything above it. */
+@media (max-width: 640px) {
+  .circuit-field {
+    transform: translateY(calc(61.1% - 52px));
+    opacity: 0.75;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent calc(38.9% - 14px),
+      #000 calc(38.9% - 2px)
+    );
+    mask-image: linear-gradient(to bottom, transparent calc(38.9% - 14px), #000 calc(38.9% - 2px));
+    -webkit-mask-composite: source-over;
+    mask-composite: add;
+  }
+}
+
+/* Reduced motion: the finished board, no draw-in, no current. */
+@media (prefers-reduced-motion: reduce) {
+  .cf-copper path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .cf-parts {
+    animation: none;
+    opacity: 1;
+  }
+  .cf-current {
+    display: none;
   }
 }
