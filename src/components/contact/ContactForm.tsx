@@ -16,6 +16,9 @@ export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
 
   if (!site.formspreeId) {
+    // On the narrowest phones the address can't fit on one line; let it
+    // break after the @ rather than push the page sideways.
+    const [user, domain] = site.email.split("@");
     return (
       <div className="rounded-lg border border-line bg-surface p-6 sm:p-8">
         <p className="text-sm leading-relaxed text-muted">
@@ -23,9 +26,12 @@ export default function ContactForm() {
         </p>
         <a
           href={`mailto:${site.email}`}
-          className="mt-4 inline-flex items-center gap-2 rounded-md bg-copper px-5 py-2.5 font-mono text-sm font-medium text-[#0a0f14] transition-colors hover:bg-copper/85"
+          className="mt-4 inline-flex max-w-full items-center gap-2 rounded-md bg-copper px-5 py-2.5 font-mono text-sm font-medium text-[#0a0f14] transition-colors hover:bg-copper/85"
         >
-          {site.email}
+          <span className="min-w-0 [overflow-wrap:anywhere]">
+            {user}@<wbr />
+            {domain}
+          </span>
         </a>
       </div>
     );
