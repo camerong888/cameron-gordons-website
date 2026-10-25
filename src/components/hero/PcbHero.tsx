@@ -6,8 +6,9 @@ import CircuitField from "./CircuitField";
 
 const fadeUp = (reduce: boolean, delay: number) =>
   reduce
-    ? {}
+    ? { "data-reveal": true }
     : {
+        "data-reveal": true,
         initial: { opacity: 0, y: 22 },
         animate: { opacity: 1, y: 0 },
         transition: { duration: 0.6, delay, ease: [0.21, 0.65, 0.35, 1] as const },

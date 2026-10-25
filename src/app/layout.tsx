@@ -58,6 +58,12 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-body`}
       >
+        {/* Without JS nothing animates the reveals in; show them as-is. */}
+        <noscript>
+          <style>
+            {"[data-reveal]{opacity:1!important;transform:none!important}"}
+          </style>
+        </noscript>
         <ThemeProvider attribute="data-theme" defaultTheme="dark">
           <a
             href="#main"

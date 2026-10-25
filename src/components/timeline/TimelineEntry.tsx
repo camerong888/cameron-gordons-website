@@ -71,6 +71,7 @@ export default function TimelineEntry({
 
   return (
     <motion.li
+      data-reveal
       initial={reduce ? false : { opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -80,6 +81,7 @@ export default function TimelineEntry({
       {/* PCB-pad node on the spine */}
       <motion.span
         aria-hidden
+        data-reveal
         initial={reduce ? false : { scale: 0.4, opacity: 0.3 }}
         whileInView={{ scale: 1, opacity: 1 }}
         viewport={{ once: true, margin: "-80px" }}
