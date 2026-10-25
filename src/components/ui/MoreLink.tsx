@@ -25,7 +25,10 @@ export default function MoreLink({
       <span aria-hidden>{external ? "↗" : "›"}</span>
     </>
   );
-  if (!href.startsWith("/")) {
+  // A plain anchor for anything that isn't a page route: other sites, mailto,
+  // and files on this site like the résumé PDF, which <Link> would try to
+  // prefetch and route to in the same tab.
+  if (external || !href.startsWith("/")) {
     return (
       <a
         href={href}
