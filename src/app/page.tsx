@@ -178,12 +178,12 @@ export default function HomePage() {
                       ? "noopener noreferrer"
                       : undefined
                   }
-                  className="flex items-center justify-between rounded-lg border border-line bg-surface px-5 py-4 transition-colors hover:border-signal"
+                  className="flex flex-col gap-1 rounded-lg border border-line bg-surface px-5 py-4 transition-colors hover:border-signal"
                 >
                   <span className="font-mono text-xs text-muted">
                     {item.label}
                   </span>
-                  <span className="font-mono text-[13px] text-ink">
+                  <span className="font-mono text-[13px] text-ink [overflow-wrap:anywhere]">
                     {item.value}
                   </span>
                 </a>
