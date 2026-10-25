@@ -2,10 +2,10 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 font-mono text-sm font-medium transition-colors";
+  "inline-flex h-11 items-center justify-center rounded-full px-6 text-body font-medium transition-[background-color,transform] duration-150 ease-out active:scale-[0.97]";
 const variants = {
-  primary: `${base} bg-copper text-[#0a0f14] hover:bg-copper/85`,
-  outline: `${base} border border-line text-ink hover:border-signal hover:text-signal`,
+  primary: `${base} bg-btn text-btn-ink hover:bg-btn-hover`,
+  secondary: `${base} border border-line text-ink hover:bg-hover`,
 } as const;
 
 export default function Button({

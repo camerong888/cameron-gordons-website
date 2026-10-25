@@ -57,7 +57,12 @@ async function main() {
     const quality = HI_FIDELITY.test(key) ? 90 : 78;
     const maxWidth = PORTRAIT.test(key) ? 960 : Infinity;
     const widths = WIDTHS.filter((w) => w <= meta.width && w <= maxWidth);
-    if (widths.length === 0) widths.push(meta.width);
+    // A source that falls between steps also ships at its own width, so a
+    // 768px original isn't capped at 480 on a 2x screen.
+    const native = Math.min(meta.width, maxWidth);
+    if (native < WIDTHS[WIDTHS.length - 1] && !widths.includes(native)) {
+      widths.push(native);
+    }
 
     const entry = {
       widths: [],

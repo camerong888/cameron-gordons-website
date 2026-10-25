@@ -41,7 +41,8 @@
   "ev-dashboard/dashboard": {
     "widths": [
       480,
-      960
+      960,
+      1400
     ],
     "width": 1400,
     "height": 932,
@@ -49,7 +50,8 @@
   },
   "fresenius/nxone": {
     "widths": [
-      480
+      480,
+      540
     ],
     "width": 540,
     "height": 619,
@@ -58,7 +60,8 @@
   "fresenius/nxstage-logo": {
     "widths": [
       480,
-      960
+      960,
+      1488
     ],
     "width": 1488,
     "height": 887,
@@ -146,7 +149,8 @@
   "liberty-defense/liberty-defense-logo": {
     "widths": [
       480,
-      960
+      960,
+      1168
     ],
     "width": 1168,
     "height": 530,
@@ -154,7 +158,8 @@
   },
   "ner/car": {
     "widths": [
-      480
+      480,
+      768
     ],
     "width": 768,
     "height": 512,
@@ -172,7 +177,8 @@
   },
   "ner/team": {
     "widths": [
-      480
+      480,
+      738
     ],
     "width": 738,
     "height": 731,
@@ -211,7 +217,8 @@
   "redwire/sun-sensor": {
     "widths": [
       480,
-      960
+      960,
+      1568
     ],
     "width": 1568,
     "height": 1362,
@@ -230,7 +237,8 @@
   "smart-hand/pcb-render": {
     "widths": [
       480,
-      960
+      960,
+      1050
     ],
     "width": 1050,
     "height": 1200,
@@ -259,7 +267,8 @@
   "telemetry-communication-board/board": {
     "widths": [
       480,
-      960
+      960,
+      1161
     ],
     "width": 1161,
     "height": 1280,
@@ -287,7 +296,8 @@
   },
   "tesla/hq": {
     "widths": [
-      480
+      480,
+      828
     ],
     "width": 828,
     "height": 516,

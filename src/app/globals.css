@@ -1,141 +1,149 @@
 @import "tailwindcss";
 
-/* Dark-first palette: :root is the dark "PCB substrate" theme,
-   light mode is the override via next-themes' data-theme attribute. */
+/* `dark:` follows next-themes, which sets data-theme before first paint. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* Light palette on :root; dark overrides it under data-theme="dark", which
+   next-themes sets from the system setting (or the header toggle) before
+   first paint. One accent, for links and the primary button only. Every
+   text pair clears 4.5:1 in both themes. */
 :root {
-  --bg: #0a0f14;
-  --surface: #0f161e;
-  --surface-2: #151f29;
-  --ink: #e6edf3;
-  --muted: #94a3b1;
-  --copper: #e8a33d;
-  --copper-soft: rgba(232, 163, 61, 0.14);
-  --signal: #2dd4a8;
-  --signal-soft: rgba(45, 212, 168, 0.12);
-  --line: rgba(230, 237, 243, 0.1);
+  color-scheme: light;
 
-  /* Substrate: a CAD canvas — fine and major grid, two faint light sources */
-  --grid-minor: rgba(230, 237, 243, 0.024);
-  --grid-major: rgba(230, 237, 243, 0.05);
-  --glow-copper: rgba(232, 163, 61, 0.075);
-  --glow-signal: rgba(45, 212, 168, 0.06);
+  --bg: #ffffff;
+  --bg-alt: #f5f5f7;
+  --tile: #ffffff;
+  --ink: #1d1d1f;
+  --ink-2: #6e6e73;
+  --line: rgba(0, 0, 0, 0.12);
+  --hover: rgba(0, 0, 0, 0.04);
+  --accent: #0066cc;
+  --btn: #0071e3;
+  --btn-hover: #0077ed;
+  --btn-ink: #ffffff;
+  --nav: rgba(255, 255, 255, 0.72);
 
-  /* Circuit field (hero board) */
-  --cf-copper: rgba(232, 163, 61, 0.52);
-  --cf-inner: rgba(230, 237, 243, 0.07);
-  --cf-halo: rgba(232, 163, 61, 0.2);
-  --cf-part-fill: rgba(12, 18, 25, 0.86);
-  --cf-part-stroke: rgba(230, 237, 243, 0.2);
-  --cf-die: rgba(230, 237, 243, 0.05);
-  --cf-ball: rgba(230, 237, 243, 0.14);
-  --cf-pad: rgba(232, 163, 61, 0.72);
-  --cf-pulse: #2dd4a8;
-  --cf-pulse-hot: #dcfff6;
-  --cf-power: #f1b455;
-  --cf-power-hot: #fff1d6;
+  /* Hero board: a line drawing in ink, with current in the accent */
+  --cf-trace: rgba(29, 29, 31, 0.24);
+  --cf-inner: rgba(29, 29, 31, 0.07);
+  --cf-part-fill: #ffffff;
+  --cf-part-stroke: rgba(29, 29, 31, 0.22);
+  --cf-die: rgba(29, 29, 31, 0.04);
+  --cf-ball: rgba(29, 29, 31, 0.14);
+  --cf-pad: rgba(29, 29, 31, 0.36);
+  --cf-pulse: #0071e3;
+  --cf-pulse-hot: #8cc8ff;
 }
 
-[data-theme="light"] {
-  --bg: #f6f4f0;
-  --surface: #ffffff;
-  --surface-2: #eef0ee;
-  --ink: #17222c;
-  --muted: #56636f;
-  --copper: #a5660a;
-  --copper-soft: rgba(165, 102, 10, 0.1);
-  --signal: #0c7a63;
-  --signal-soft: rgba(12, 122, 99, 0.1);
-  --line: rgba(23, 34, 44, 0.13);
+[data-theme="dark"] {
+  color-scheme: dark;
 
-  --grid-minor: rgba(23, 34, 44, 0.03);
-  --grid-major: rgba(23, 34, 44, 0.06);
-  --glow-copper: rgba(165, 102, 10, 0.07);
-  --glow-signal: rgba(12, 122, 99, 0.06);
+  --bg: #000000;
+  --bg-alt: #101011;
+  --tile: #1c1c1e;
+  --ink: #f5f5f7;
+  --ink-2: #a1a1a6;
+  --line: rgba(255, 255, 255, 0.14);
+  --hover: rgba(255, 255, 255, 0.06);
+  --accent: #2997ff;
+  --nav: rgba(22, 22, 23, 0.72);
 
-  --cf-copper: rgba(165, 102, 10, 0.5);
-  --cf-inner: rgba(23, 34, 44, 0.08);
-  --cf-halo: rgba(165, 102, 10, 0.16);
-  --cf-part-fill: rgba(255, 255, 255, 0.82);
-  --cf-part-stroke: rgba(23, 34, 44, 0.26);
-  --cf-die: rgba(23, 34, 44, 0.05);
-  --cf-ball: rgba(23, 34, 44, 0.16);
-  --cf-pad: rgba(165, 102, 10, 0.78);
-  --cf-pulse: #0c7a63;
-  --cf-pulse-hot: #12b391;
-  --cf-power: #a5660a;
-  --cf-power-hot: #d48a1a;
+  --cf-trace: rgba(245, 245, 247, 0.22);
+  --cf-inner: rgba(245, 245, 247, 0.07);
+  --cf-part-fill: #0b0b0c;
+  --cf-part-stroke: rgba(245, 245, 247, 0.2);
+  --cf-die: rgba(245, 245, 247, 0.05);
+  --cf-ball: rgba(245, 245, 247, 0.16);
+  --cf-pad: rgba(245, 245, 247, 0.42);
+  --cf-pulse: #2997ff;
+  --cf-pulse-hot: #d3e9ff;
 }
 
 @theme inline {
   --color-bg: var(--bg);
-  --color-surface: var(--surface);
-  --color-surface-2: var(--surface-2);
+  --color-bg-alt: var(--bg-alt);
+  --color-tile: var(--tile);
   --color-ink: var(--ink);
-  --color-muted: var(--muted);
-  --color-copper: var(--copper);
-  --color-copper-soft: var(--copper-soft);
-  --color-signal: var(--signal);
-  --color-signal-soft: var(--signal-soft);
+  --color-ink-2: var(--ink-2);
   --color-line: var(--line);
-  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
-  --font-body: var(--font-inter), system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --color-hover: var(--hover);
+  --color-accent: var(--accent);
+  --color-btn: var(--btn);
+  --color-btn-hover: var(--btn-hover);
+  --color-btn-ink: var(--btn-ink);
+  --color-nav: var(--nav);
+  /* SF Pro on Apple devices, straight from the system stack; Inter elsewhere. */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    var(--font-inter), "Segoe UI", system-ui, sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+/* Type scale, Apple-style: tight, heavy display sizes; 17px body. Sizes are
+   in rem so the whole scale follows the visitor's text-size setting. */
+@theme {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
+  --text-display: clamp(2.5rem, 1.55rem + 2.9vw, 3.75rem);
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.03em;
+  --text-display--font-weight: 700;
+  --text-headline: clamp(2rem, 1.45rem + 2vw, 3.25rem);
+  --text-headline--line-height: 1.07;
+  --text-headline--letter-spacing: -0.026em;
+  --text-headline--font-weight: 700;
+  --text-figure: clamp(2.75rem, 2.1rem + 2.1vw, 4rem);
+  --text-figure--line-height: 1.04;
+  --text-figure--letter-spacing: -0.035em;
+  --text-figure--font-weight: 700;
+  --text-heading: clamp(1.5rem, 1.25rem + 0.9vw, 2rem);
+  --text-heading--line-height: 1.15;
+  --text-heading--letter-spacing: -0.02em;
+  --text-heading--font-weight: 700;
+  --text-title: 1.3125rem;
+  --text-title--line-height: 1.24;
+  --text-title--letter-spacing: -0.016em;
+  --text-title--font-weight: 600;
+  --text-lede: clamp(1.1875rem, 1.1rem + 0.3vw, 1.3125rem);
+  --text-lede--line-height: 1.42;
+  --text-lede--letter-spacing: -0.012em;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.47;
+  --text-body--letter-spacing: -0.01em;
+  --text-small: 0.9375rem;
+  --text-small--line-height: 1.47;
+  --text-small--letter-spacing: -0.008em;
+  --text-meta: 0.875rem;
+  --text-meta--line-height: 1.43;
+  --text-meta--letter-spacing: -0.006em;
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.34;
+  --text-caption--letter-spacing: 0em;
 }
 
 html {
   background-color: var(--bg);
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* The body stays transparent: an opaque body background would paint over the
-   substrate layer below, which sits at z-index -1 in the root context. */
 body {
   color: var(--ink);
-  font-family: var(--font-body);
+  background-color: var(--bg);
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  letter-spacing: var(--text-body--letter-spacing);
+  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
-}
-
-/* Substrate: one fixed, static layer behind the whole page — a fine grid with
-   every fifth line heavier, like a layout canvas, lit from two corners and
-   vignetted so it recedes toward the fold instead of tiling flat forever.
-   Static gradients on a fixed layer cost nothing to scroll. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    radial-gradient(62rem 38rem at 92% -6%, var(--glow-signal), transparent 62%),
-    radial-gradient(52rem 34rem at -8% 12%, var(--glow-copper), transparent 60%),
-    linear-gradient(var(--grid-major) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-major) 1px, transparent 1px),
-    linear-gradient(var(--grid-minor) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px);
-  background-size:
-    auto,
-    auto,
-    120px 120px,
-    120px 120px,
-    24px 24px,
-    24px 24px;
-  -webkit-mask-image: radial-gradient(130% 95% at 50% 0%, #000 40%, rgba(0, 0, 0, 0.35) 100%);
-  mask-image: radial-gradient(130% 95% at 50% 0%, #000 40%, rgba(0, 0, 0, 0.35) 100%);
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: var(--copper);
-  color: #0a0f14;
+  background: color-mix(in srgb, var(--btn) 24%, transparent);
 }
 
 :focus-visible {
-  outline: 2px solid var(--signal);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -149,14 +157,101 @@ body::before {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
 
-  /* Entrance reveals are server-rendered at opacity 0 for framer-motion to
-     animate in. Under reduced motion that animation never runs and React
-     keeps the server's inline style, so the resting state has to win here
-     (layout.tsx does the same when JS is off). */
-  [data-reveal] {
-    opacity: 1 !important;
-    transform: none !important;
+/* The content column: 1040px, with 22px gutters on phones and 44px above. */
+@utility wrap {
+  width: min(100% - 2.75rem, 65rem);
+  margin-inline: auto;
+  @media (width >= 48rem) {
+    width: min(100% - 5.5rem, 65rem);
+  }
+}
+
+@utility section-y {
+  padding-block: clamp(4rem, 2.6rem + 5.6vw, 7.5rem);
+}
+
+/* Grows a small control's hit area to at least 44 × 44 without changing
+   how it looks. */
+@utility hit-area {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: max(100%, 2.75rem);
+    height: max(100%, 2.75rem);
+    transform: translate(-50%, -50%);
+  }
+}
+
+@layer components {
+  /* Hero copy rises in once on load. CSS only, so it never waits on JS. */
+  .rise {
+    animation: rise 0.8s var(--ease-out) both;
+    animation-delay: calc(var(--rise, 0) * 70ms + 60ms);
+  }
+
+  /* One row of the experience list: company, role, dates, one line of
+     impact. Stacked on phones; four columns from 832px. */
+  .role-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "co when"
+      "role role"
+      "note note";
+    gap: 0.25rem 1rem;
+    margin-inline: -0.625rem;
+    padding: 1.25rem 0.625rem;
+    border-radius: 0.875rem;
+  }
+  @media (width >= 52rem) {
+    .role-row {
+      grid-template-columns: 13rem minmax(0, 1fr) 10.5rem 0.875rem;
+      grid-template-areas:
+        "co role when chev"
+        "co note when chev";
+      column-gap: 1.75rem;
+      margin-inline: -0.875rem;
+      padding: 1.375rem 0.875rem;
+    }
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+}
+
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+/* Scroll reveals (components/ui/Reveal.tsx). The server HTML is always fully
+   visible: only blocks still below the fold once JS runs start hidden, and
+   each fades up as it enters. Reduced motion never hides anything. */
+[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(1.25rem);
+}
+[data-reveal="shown"] {
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.7s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+@media print {
+  [data-reveal="hidden"] {
+    opacity: 1;
+    transform: none;
   }
 }
 
@@ -165,25 +260,25 @@ body::before {
 /* ------------------------------------------------------------------ */
 
 /* Anchored to the right of the hero and dissolved toward the copy with a
-   mask, so the board never competes with the headline — no overlay needed.
+   mask, so the board never competes with the headline.
 
    Sizing is what keeps the copy clear. The board scales with the hero's
    height (10:9 box, viewBox 1000×900), and the copper nearest the copy — the
    routing channel's vias — sits 440 units × scale from the right edge. The
-   headline's first line is 738px long, and two caps hold 36px of air between
-   it and those vias:
-   - from 1152px up the column is centered, so the line ends at 50vw + 194px
-     and scale <= (100vw - 460px) / 880;
-   - below that the column hugs the left edge, the line ends at 770px, and
-     scale <= (100vw - 806px) / 440. */
+   copy column is at most 600px wide, and two caps hold 36px of air between
+   its right edge and those vias:
+   - from 1128px up the column is centered, so it ends by 50vw + 80px and
+     scale <= (50vw - 116px) / 440;
+   - below that it hugs the 44px gutter, ends by 644px, and
+     scale <= (100vw - 680px) / 440. */
 .circuit-field {
   position: absolute;
   top: 50%;
   right: 0;
   height: min(
     100%,
-    calc((100vw - 460px) * 1.0227),
-    calc((100vw - 806px) * 2.0455)
+    calc((100vw - 232px) * 1.0227),
+    calc((100vw - 680px) * 2.0455)
   );
   aspect-ratio: 10 / 9;
   transform: translateY(-50%);
@@ -209,34 +304,23 @@ body::before {
   stroke-width: 1.25;
 }
 
-/* The halo blooms only once the copper beneath it has drawn in — shown any
-   earlier it reads as a smudged ghost of the board. */
-.cf-halo {
-  opacity: 0;
-  animation: cf-fade 1.4s ease-out 1.5s forwards;
-}
-.cf-halo path {
-  stroke: var(--cf-halo);
-  stroke-width: 5;
-}
-
 /* Top-layer copper draws in once, net by net. Every path is normalized to
    1000 dash units (pathLength), so one keyframe serves them all. */
 .cf-copper path {
-  stroke: var(--cf-copper);
-  stroke-width: 1.5;
+  stroke: var(--cf-trace);
+  stroke-width: 1.35;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: cf-draw 1.5s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
-  animation-delay: calc(var(--i) * 40ms + 120ms);
+  animation: cf-draw 1.6s var(--ease-out) forwards;
+  animation-delay: calc(var(--i) * 34ms + 120ms);
 }
 .cf-copper .cf-power {
-  stroke-width: 3.25;
+  stroke-width: 2.6;
 }
 
 .cf-parts {
   opacity: 0;
-  animation: cf-fade 0.9s ease-out 0.45s forwards;
+  animation: cf-fade 0.8s ease-out 0.35s forwards;
 }
 .cf-part {
   fill: var(--cf-part-fill);
@@ -257,7 +341,6 @@ body::before {
 }
 .cf-pin1 {
   fill: var(--cf-pulse);
-  opacity: 0.85;
   stroke: none;
 }
 .cf-via-ring {
@@ -279,27 +362,21 @@ body::before {
   stroke-dashoffset: var(--from);
   animation: cf-flow var(--dur) linear var(--delay) infinite backwards;
 }
-.cf-current [data-tone="power"] path {
-  stroke: var(--cf-power);
-}
 .cf-current .cf-glow {
-  stroke-width: 9;
-  opacity: 0.1;
+  stroke-width: 8;
+  opacity: 0.07;
 }
 .cf-current .cf-tail {
-  stroke-width: 1.6;
-  opacity: 0.32;
+  stroke-width: 1.4;
+  opacity: 0.28;
 }
 .cf-current .cf-body {
-  stroke-width: 2;
-  opacity: 0.8;
+  stroke-width: 1.8;
+  opacity: 0.75;
 }
 .cf-current .cf-head {
   stroke: var(--cf-pulse-hot);
-  stroke-width: 2.4;
-}
-.cf-current [data-tone="power"] .cf-head {
-  stroke: var(--cf-power-hot);
+  stroke-width: 2.2;
 }
 
 /* Off screen, everything holds still. */
@@ -328,8 +405,8 @@ body::before {
 
 /* Below 1280px (Tailwind's xl) the width cap starts to bite, so the board is
    shorter than the hero and its top and bottom routing bands would drift into
-   the headline's rows. The rule stays the same — no copper behind text — so
-   the mask becomes a spotlight on the column right of the routing channel:
+   the copy's rows. The rule stays the same — no copper behind text — so the
+   mask becomes a spotlight on the column right of the routing channel:
    memory, FPGA, flash and the edge connector. It is an ellipse centered at
    (830, 450) with radii 340 × 420 board units: the channel's vias sit just
    inside it, and the risers and drops dissolve along their vertical runs,
@@ -412,8 +489,7 @@ body::before {
     animation: none;
     stroke-dashoffset: 0;
   }
-  .cf-parts,
-  .cf-halo {
+  .cf-parts {
     animation: none;
     opacity: 1;
   }

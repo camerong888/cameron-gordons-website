@@ -31,7 +31,7 @@ export interface Experience {
   summary: string;
   bullets: string[];
   skills: string[];
-  /** One-liner shown on the timeline card */
+  /** One line of impact, shown under the role in the home page's list */
   timelineHighlight: string;
   metrics?: Metric[];
 }
@@ -43,6 +43,7 @@ export interface ProjectSection {
 
 export interface Project {
   slug: string;
+  /** "Name — what it is"; cards show the name alone */
   title: string;
   tagline: string;
   year: string;
@@ -61,21 +62,25 @@ export interface Project {
 export interface SkillDomain {
   key: string;
   title: string;
-  /** 1–3 proficiency dots per skill */
-  skills: { name: string; level: 1 | 2 | 3 }[];
+  skills: string[];
 }
 
-export type TimelineKind = "role" | "education" | "milestone";
+/** One result in the home page's Highlights band. */
+export interface Highlight {
+  /** Where it happened, shown above the number */
+  org: string;
+  value: string;
+  caption: string;
+  /** The page that backs it up */
+  href: string;
+}
 
-export interface TimelineEvent {
-  kind: TimelineKind;
-  /** e.g. "Apr 2026 – Present" */
-  dateLabel: string;
-  sortKey: string;
-  title: string;
-  subtitle: string;
-  highlight: string;
-  tags: string[];
+export interface Education {
+  degree: string;
+  school: string;
+  /** e.g. "4.0 GPA" */
+  honors: string;
+  year: string;
+  note: string;
   href?: string;
-  current?: boolean;
 }

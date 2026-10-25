@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import Script from "next/script";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
@@ -8,14 +8,14 @@ import Footer from "@/components/layout/Footer";
 import HashRedirect from "@/components/HashRedirect";
 import { site } from "@/data/site";
 
-const spaceGrotesk = Space_Grotesk({
+// Apple devices render SF Pro from the system stack (see globals.css); Inter
+// stands in everywhere else. It isn't preloaded, so only browsers that fall
+// back to it download it.
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
-});
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  variable: "--font-inter",
+  axes: ["opsz"],
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -38,6 +38,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+  ],
+};
+
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -55,19 +62,16 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-body`}
-      >
-        {/* Without JS nothing animates the reveals in; show them as-is. */}
-        <noscript>
-          <style>
-            {"[data-reveal]{opacity:1!important;transform:none!important}"}
-          </style>
-        </noscript>
-        <ThemeProvider attribute="data-theme" defaultTheme="dark">
+      <body className={`${inter.variable} font-sans`}>
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-copper focus:px-4 focus:py-2 focus:font-mono focus:text-sm focus:text-[#0a0f14]"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-2.5 focus:z-[100] focus:rounded-full focus:bg-btn focus:px-4 focus:py-2 focus:text-meta focus:font-medium focus:text-btn-ink"
           >
             Skip to content
           </a>

@@ -13,19 +13,32 @@ npm run dev        # http://localhost:3000
 
 ## Content
 
-All site content lives in typed data files — no copy is hardcoded in components:
+Structured content lives in typed data files; the hero, section intros and
+About copy sit in the page components.
 
 | File | Contents |
 |---|---|
-| `src/data/experience.ts` | Work experience entries (drives timeline + detail pages) |
-| `src/data/projects.ts` | Project case studies |
-| `src/data/skills.ts` | Skills matrix domains |
+| `src/data/highlights.ts` | The four results under the hero (numbers must match `experience.ts`) |
+| `src/data/experience.ts` | Work experience entries (drives the home list + detail pages) |
+| `src/data/education.ts` | Degrees |
+| `src/data/projects.ts` | Project case studies; the first one is featured on the home page |
+| `src/data/skills.ts` | Capabilities, grouped by discipline |
 | `src/data/extracurriculars.ts` | Northeastern Electric Racing |
-| `src/data/site.ts` | Nav, socials, metadata, GA ID, Formspree ID |
+| `src/data/site.ts` | Nav, socials, metadata, analytics token, Formspree ID |
 | `src/data/redirects.ts` | Legacy `/#/route` → new path map |
 
 Adding a project = one entry in `projects.ts` + images in `assets-src/<slug>/`
 (then run the image pipeline).
+
+## Design
+
+Tokens sit at the top of `src/app/globals.css`: the light palette on `:root`,
+and dark overrides under `data-theme="dark"`. The site follows the system
+appearance, and the header toggle pins one. There is one accent, for links and
+the primary button. Type is the
+platform face (SF Pro on Apple devices, Inter elsewhere) on the
+`text-display` … `text-caption` scale. Scroll reveals never hide
+server-rendered content (see `components/ui/Reveal.tsx`).
 
 ## Images
 
