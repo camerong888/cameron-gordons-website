@@ -149,6 +149,15 @@ body::before {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
+  /* Entrance reveals are server-rendered at opacity 0 for framer-motion to
+     animate in. Under reduced motion that animation never runs and React
+     keeps the server's inline style, so the resting state has to win here
+     (layout.tsx does the same when JS is off). */
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* ------------------------------------------------------------------ */
