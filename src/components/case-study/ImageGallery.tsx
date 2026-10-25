@@ -4,6 +4,30 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { ImageRef } from "@/data/types";
 import Picture from "@/components/ui/Picture";
 
+const control =
+  "grid size-11 place-items-center rounded-full bg-white/12 text-white transition-[background-color,transform] duration-150 ease-out hover:bg-white/24 active:scale-[0.94]";
+
+function Chevron({ flip = false }: { flip?: boolean }) {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden
+      className={flip ? "rotate-180" : ""}
+    >
+      <path
+        d="M9 5l7 7-7 7"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 /**
  * Thumbnail grid + accessible lightbox (native <dialog>): Esc closes,
  * arrow keys navigate, swipe works on touch devices.
@@ -43,19 +67,19 @@ export default function ImageGallery({ images }: { images: ImageRef[] }) {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
         {images.map((image, i) => (
           <button
             key={image.src}
             type="button"
             onClick={() => setIndex(i)}
             aria-label={`Open image: ${image.alt}`}
-            className="group overflow-hidden rounded-lg border border-line bg-surface-2 transition-colors hover:border-copper/60"
+            className="group aspect-[4/3] overflow-hidden rounded-2xl bg-bg-alt transition-transform duration-150 ease-out active:scale-[0.98]"
           >
             <Picture
               image={image}
-              sizes="(max-width: 768px) 50vw, 360px"
-              className="aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+              sizes="(min-width: 1128px) 340px, (min-width: 768px) 33vw, 50vw"
+              className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             />
           </button>
         ))}
@@ -74,43 +98,56 @@ export default function ImageGallery({ images }: { images: ImageRef[] }) {
           if (Math.abs(dx) > 48) step(dx < 0 ? 1 : -1);
           touchX.current = null;
         }}
-        className="fixed inset-0 m-auto w-[min(96vw,1100px)] bg-transparent p-0 backdrop:bg-black/85"
+        className="m-auto w-[min(94vw,1100px)] bg-transparent p-0 backdrop:bg-black/85 backdrop:backdrop-blur-sm open:animate-[lightbox-in_200ms_var(--ease-out)]"
         aria-label="Image viewer"
       >
         {index !== null && (
-          <div className="relative">
+          <div className="grid justify-items-center gap-4">
             <Picture
               image={images[index]}
-              sizes="96vw"
-              className="max-h-[82vh] w-full rounded-lg object-contain"
+              sizes="94vw"
+              className="max-h-[78vh] w-auto max-w-full rounded-2xl object-contain"
             />
-            <p className="mt-3 text-center font-mono text-xs text-white/80">
-              {images[index].alt} · {index + 1}/{images.length}
+            <p className="text-center text-meta text-white/80">
+              {images[index].alt} · {index + 1} of {images.length}
             </p>
-            <div className="mt-3 flex items-center justify-center gap-3">
+            <div className="flex items-center gap-3">
               <button
                 type="button"
                 onClick={() => step(-1)}
                 aria-label="Previous image"
-                className="rounded-md border border-white/25 px-4 py-2 font-mono text-sm text-white hover:border-white/60"
+                className={control}
               >
-                ← Prev
+                <Chevron flip />
               </button>
               <button
                 type="button"
                 onClick={close}
                 aria-label="Close image viewer"
-                className="rounded-md border border-white/25 px-4 py-2 font-mono text-sm text-white hover:border-white/60"
+                className={control}
               >
-                Close ✕
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden
+                >
+                  <path
+                    d="M6 6l12 12M18 6L6 18"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
               </button>
               <button
                 type="button"
                 onClick={() => step(1)}
                 aria-label="Next image"
-                className="rounded-md border border-white/25 px-4 py-2 font-mono text-sm text-white hover:border-white/60"
+                className={control}
               >
-                Next →
+                <Chevron />
               </button>
             </div>
           </div>

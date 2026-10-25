@@ -1,26 +1,61 @@
-// Renders public/og/og-default.png (the social preview). Run from the repo
-// root: `npm run og`. Text is drawn with system fonts, so the stacks name the
-// design font first (DejaVu, present on Linux) and a close macOS sibling second
-// (Menlo is DejaVu Sans Mono's descendant) — look at the result after running.
+// Renders public/og/og-default.png (the social preview) in the site's style:
+// white ground, the name and role in ink, the hero board as a line drawing
+// with one trace in the accent. Run from the repo root: `npm run og`. Text is
+// drawn with system fonts, so the stack names Inter first and falls back to
+// Helvetica Neue (macOS) or Liberation Sans (the Playwright image) — look at
+// the result after running.
 import sharp from "sharp";
+
+const ink = "#1d1d1f";
+const ink2 = "#6e6e73";
+const accent = "#0071e3";
+const line = `stroke="${ink}" stroke-opacity="0.22" stroke-width="2"`;
+const font = `font-family="Inter, 'Helvetica Neue', 'Liberation Sans', Arial, sans-serif"`;
+
+// FPGA ball grid with the die's keep-out left clear
+const balls = [];
+for (let r = 0; r < 7; r++) {
+  for (let c = 0; c < 7; c++) {
+    if (r >= 2 && r <= 4 && c >= 2 && c <= 4) continue;
+    balls.push(`<circle cx="${845 + c * 25}" cy="${240 + r * 25}" r="3" fill="${ink}" fill-opacity="0.16"/>`);
+  }
+}
+// FPGA → edge connector, running off the right edge
+const edge = Array.from({ length: 6 }, (_, k) => {
+  const y = 250 + 26 * k;
+  return `<path d="M1020 ${y} H1110 L1130 ${y + 10} H1150" ${line}/><rect x="1150" y="${y + 4}" width="50" height="12" rx="2" fill="${ink}" fill-opacity="0.3"/>`;
+});
+// FPGA → DDR above
+const ddr = Array.from({ length: 5 }, (_, k) => `<path d="M${860 + 25 * k} 215 V136" ${line}/>`);
+// Fan-out to vias on the left
+const fan = Array.from({ length: 5 }, (_, k) => {
+  const y = 262 + 24 * k;
+  return `<path d="M820 ${y} H770" ${line}/><circle cx="764" cy="${y}" r="6" fill="#fff" ${line}/>`;
+});
+
 const svg = `<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
-<rect width="1200" height="630" fill="#0a0f14"/>
-<g stroke="#1c2732" stroke-width="1">${Array.from({length:27},(_,i)=>`<line x1="${i*44}" y1="0" x2="${i*44}" y2="630"/>`).join("")}${Array.from({length:15},(_,i)=>`<line x1="0" y1="${i*44}" x2="1200" y2="${i*44}"/>`).join("")}</g>
-<g stroke="#e8a33d" stroke-width="3" fill="none" opacity="0.65">
-<path d="M 840 90 H 1000 L 1060 150 H 1160"/>
-<path d="M 800 200 H 940 L 1000 260 H 1160"/>
-<path d="M 860 320 H 980 L 1040 380 H 1160"/>
-<path d="M 900 440 H 1000 L 1060 500 H 1160"/>
+<rect width="1200" height="630" fill="#ffffff"/>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+${edge.join("\n")}
+${ddr.join("\n")}
+${fan.join("\n")}
+<path d="M930 415 V480" ${line}/>
+<path d="M980 415 V480" ${line}/>
+<path d="M1020 302 H1110 L1130 312 H1150" stroke="${accent}" stroke-width="2.5"/>
+<path d="M910 215 V136" stroke="${accent}" stroke-width="2.5"/>
 </g>
-<g fill="none" stroke="#e8a33d" stroke-width="3" opacity="0.8">
-<circle cx="840" cy="90" r="10"/><circle cx="800" cy="200" r="10"/><circle cx="860" cy="320" r="10"/><circle cx="900" cy="440" r="10"/>
-</g>
-<g fill="#2dd4a8"><circle cx="1060" cy="150" r="7"/><circle cx="1000" cy="260" r="7"/><circle cx="1040" cy="380" r="7"/></g>
-<text x="90" y="180" font-family="DejaVu Sans Mono, Menlo, monospace" font-size="26" fill="#2dd4a8" letter-spacing="6">// HARDWARE ENGINEER</text>
-<text x="86" y="290" font-family="DejaVu Sans, Verdana, sans-serif" font-size="86" font-weight="bold" fill="#e6edf3">Cameron Gordon</text>
-<text x="90" y="370" font-family="DejaVu Sans, Verdana, sans-serif" font-size="34" fill="#94a3b1">High-speed digital design for space &amp; defense</text>
-<text x="90" y="430" font-family="DejaVu Sans, Verdana, sans-serif" font-size="34" fill="#94a3b1">FPGAs · High-speed memory · Mission-critical PCBs</text>
-<text x="90" y="540" font-family="DejaVu Sans Mono, Menlo, monospace" font-size="26" fill="#e8a33d">cameron.gordongames.com</text>
+<rect x="880" y="80" width="160" height="56" rx="6" fill="#ffffff" ${line}/>
+<rect x="900" y="480" width="110" height="64" rx="6" fill="#ffffff" ${line}/>
+<rect x="820" y="215" width="200" height="200" rx="12" fill="#ffffff" ${line}/>
+${balls.join("\n")}
+<rect x="887" y="282" width="66" height="66" rx="6" fill="${ink}" fill-opacity="0.04" ${line}/>
+<path d="M830 239 V225 H844 Z" fill="${accent}"/>
+<text x="90" y="250" ${font} font-size="72" font-weight="700" letter-spacing="-1.5" fill="${ink}">Cameron Gordon</text>
+<text x="92" y="318" ${font} font-size="36" font-weight="600" fill="${ink}">Hardware engineer at Draper</text>
+<text x="92" y="372" ${font} font-size="30" fill="${ink2}">High-speed digital design</text>
+<text x="92" y="412" ${font} font-size="30" fill="${ink2}">for space and defense</text>
+<text x="92" y="540" ${font} font-size="26" fill="#0066cc">cameron.gordongames.com</text>
 </svg>`;
+
 await sharp(Buffer.from(svg)).png().toFile("public/og/og-default.png");
 console.log("og-default.png written");

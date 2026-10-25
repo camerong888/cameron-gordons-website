@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 /**
  * The hero's board: a routed PCB drawn in SVG, with current flowing along
@@ -201,7 +201,6 @@ interface Pulse {
   /** Idle distance between passes, as a multiple of the net's length. */
   rest: number;
   reverse?: boolean;
-  tone?: "signal" | "power";
   /** Hidden on small screens, where fewer moving parts read better. */
   desktopOnly?: boolean;
 }
@@ -217,7 +216,7 @@ const pulses: Pulse[] = [
   { net: edgeBus[3], delay: 1.8, rest: 1.0 },
   { net: edgeBus[5], delay: 3.7, rest: 1.8, reverse: true },
   { net: flashBus[1], delay: 2.6, rest: 1.5, reverse: true },
-  { net: powerRail, delay: 1.5, rest: 0.6, tone: "power" },
+  { net: powerRail, delay: 1.5, rest: 0.6 },
 ];
 
 /** Current moves at one physical speed, in viewBox units per second. */
@@ -307,7 +306,6 @@ for (let r = 0; r < 9; r++) {
 
 export default function CircuitField({ className = "" }: { className?: string }) {
   const ref = useRef<SVGSVGElement>(null);
-  const haloId = `cf-halo-${useId().replace(/:/g, "")}`;
 
   // Animate only while the hero is on screen.
   useEffect(() => {
@@ -332,25 +330,11 @@ export default function CircuitField({ className = "" }: { className?: string })
       data-live="true"
       className={`circuit-field ${className}`}
     >
-      <defs>
-        <filter id={haloId} x="-5%" y="-5%" width="110%" height="110%">
-          <feGaussianBlur stdDeviation="5" />
-        </filter>
-      </defs>
-
       {/* Inner layer: dim copper under the mask, for depth */}
       <g className="cf-inner">
         {innerLayer.map((net, i) => (
           <path key={i} d={toPath(net)} />
         ))}
-      </g>
-
-      {/* A soft halo under the top-layer copper. Blurred once, never animated. */}
-      <g className="cf-halo" filter={`url(#${haloId})`}>
-        {traces.map((net, i) => (
-          <path key={i} d={toPath(net)} />
-        ))}
-        <path d={toPath(powerRail)} strokeWidth="7" />
       </g>
 
       {/* Top-layer copper, drawn in on load */}
@@ -500,7 +484,6 @@ export default function CircuitField({ className = "" }: { className?: string })
             <g
               key={i}
               style={vars}
-              data-tone={p.tone ?? "signal"}
               data-desktop-only={p.desktopOnly ? "true" : undefined}
             >
               <path d={d} pathLength={UNITS} strokeDasharray={s.tail} className="cf-glow" />

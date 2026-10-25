@@ -6,6 +6,9 @@ export interface NavTarget {
   sublabel: string;
 }
 
+const item =
+  "-m-3 grid content-start gap-0.5 rounded-2xl p-3 transition-colors hover:bg-hover";
+
 export default function PrevNextNav({
   prev,
   next,
@@ -16,32 +19,22 @@ export default function PrevNextNav({
   return (
     <nav
       aria-label="More pages"
-      className="grid gap-4 border-t border-line pt-8 sm:grid-cols-2"
+      className="mt-4 grid grid-cols-2 gap-8 border-t border-line pt-8"
     >
       {prev ? (
-        <Link
-          href={prev.href}
-          className="group rounded-lg border border-line bg-surface p-5 transition-colors hover:border-copper/60"
-        >
-          <p className="font-mono text-xs text-muted">← Previous</p>
-          <p className="mt-1 font-display font-semibold text-ink group-hover:text-copper">
-            {prev.label}
-          </p>
-          <p className="mt-0.5 font-mono text-xs text-muted">{prev.sublabel}</p>
+        <Link href={prev.href} className={item}>
+          <span className="text-meta text-accent">‹ Previous</span>
+          <span className="text-title">{prev.label}</span>
+          <span className="text-meta text-ink-2">{prev.sublabel}</span>
         </Link>
       ) : (
         <span aria-hidden />
       )}
       {next ? (
-        <Link
-          href={next.href}
-          className="group rounded-lg border border-line bg-surface p-5 text-right transition-colors hover:border-copper/60"
-        >
-          <p className="font-mono text-xs text-muted">Next →</p>
-          <p className="mt-1 font-display font-semibold text-ink group-hover:text-copper">
-            {next.label}
-          </p>
-          <p className="mt-0.5 font-mono text-xs text-muted">{next.sublabel}</p>
+        <Link href={next.href} className={`${item} text-right`}>
+          <span className="text-meta text-accent">Next ›</span>
+          <span className="text-title">{next.label}</span>
+          <span className="text-meta text-ink-2">{next.sublabel}</span>
         </Link>
       ) : (
         <span aria-hidden />

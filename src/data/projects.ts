@@ -41,8 +41,8 @@ export const projects: Project[] = [
       { value: "AWS", label: "cloud-connected telemetry" },
     ],
     cover: {
-      src: "iridium-iot/pcb-render",
-      alt: "Summit Signal PCB layout render in Altium",
+      src: "iridium-iot/fabricated-pcb",
+      alt: "Fabricated and assembled Summit Signal PCB, powered on",
     },
     gallery: [
       {
@@ -106,8 +106,8 @@ export const projects: Project[] = [
       { value: "USB-C", label: "charge + data" },
     ],
     cover: {
-      src: "smart-hand/pcb-render",
-      alt: "SmartHand PCB layout render",
+      src: "smart-hand/fabricated-pcb",
+      alt: "Fabricated SmartHand PCB on a wrist, next to a smartwatch for scale",
     },
     gallery: [
       { src: "smart-hand/pcb-render", alt: "SmartHand PCB layout render" },
@@ -262,4 +262,9 @@ export const projects: Project[] = [
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
+}
+
+/** "Summit Signal — Iridium IoT SOS Device" → "Summit Signal". */
+export function projectName(project: Project): string {
+  return project.title.split(" — ")[0];
 }

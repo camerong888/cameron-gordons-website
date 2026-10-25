@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ner } from "@/data/extracurriculars";
-import Badge from "@/components/ui/Badge";
+import { projects } from "@/data/projects";
 import Reveal from "@/components/ui/Reveal";
+import Section from "@/components/ui/Section";
+import SectionHeading from "@/components/ui/SectionHeading";
+import Stage from "@/components/ui/Stage";
+import ProjectCard from "@/components/projects/ProjectCard";
 import DetailShell from "@/components/case-study/DetailShell";
+import PageHeader from "@/components/case-study/PageHeader";
 import MetricCallouts from "@/components/case-study/MetricCallouts";
 import ImageGallery from "@/components/case-study/ImageGallery";
 
@@ -12,73 +16,75 @@ export const metadata: Metadata = {
   description: ner.summary,
 };
 
+const teamProjects = projects.filter((p) => p.context === ner.company);
+
 export default function NerPage() {
   return (
-    <DetailShell backHref="/#leadership" backLabel="Home">
-      <p className="font-mono text-xs uppercase tracking-[0.25em] text-signal">
-        {"// Leadership"}
-      </p>
-      <h1 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-5xl">
-        {ner.company}
-      </h1>
-      <p className="mt-2 font-mono text-sm text-copper">{ner.role}</p>
-      <p className="mt-1 font-mono text-xs text-muted">
-        {ner.start} – {ner.end} · {ner.location} ·{" "}
-        <a
-          href={ner.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-signal hover:underline"
-        >
-          electricracing.northeastern.edu ↗
-        </a>
-      </p>
+    <>
+      <DetailShell
+        crumbs={[
+          { label: "Leadership", href: "/#leadership" },
+          { label: ner.company },
+        ]}
+      >
+        <PageHeader
+          meta={
+            <>
+              {ner.start} – {ner.end} · {ner.location} ·{" "}
+              <a
+                href={ner.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent hover:underline"
+              >
+                electricracing.northeastern.edu ↗
+              </a>
+            </>
+          }
+          title={ner.company}
+          subtitle={ner.role}
+          lede={ner.summary}
+        />
 
-      <div className="mt-10 space-y-10">
-        <Reveal>
-          <p className="max-w-3xl text-[15px] leading-relaxed text-muted">
-            {ner.summary}
-          </p>
-        </Reveal>
+        {ner.heroImage ? (
+          <Reveal>
+            <Stage image={ner.heroImage} priority />
+          </Reveal>
+        ) : null}
 
         <Reveal>
           <MetricCallouts metrics={ner.metrics ?? []} />
         </Reveal>
 
         <Reveal>
-          <section>
-            <h2 className="font-display text-xl font-semibold text-ink">
-              What I did
-            </h2>
-            <ul className="mt-4 max-w-3xl space-y-3">
-              {ner.bullets.map((bullet) => (
-                <li key={bullet} className="flex gap-3">
-                  <span
-                    aria-hidden
-                    className="mt-[9px] h-px w-4 shrink-0 bg-copper"
-                  />
-                  <span className="text-[15px] leading-relaxed text-muted">
+          <section
+            aria-labelledby="what-i-did"
+            className="border-t border-line py-10 md:py-14"
+          >
+            <div className="grid max-w-[48.75rem] gap-5">
+              <h2 id="what-i-did" className="text-heading">
+                What I did
+              </h2>
+              <ul className="border-t border-line">
+                {ner.bullets.map((bullet) => (
+                  <li key={bullet} className="border-b border-line py-3.5">
                     {bullet}
-                  </span>
-                </li>
-              ))}
-            </ul>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-small text-ink-2">
+                {ner.skills.join(" · ")}
+              </p>
+            </div>
           </section>
         </Reveal>
 
         <Reveal>
-          <div className="flex flex-wrap gap-2">
-            {ner.skills.map((s) => (
-              <Badge key={s} tone="copper">
-                {s}
-              </Badge>
-            ))}
-          </div>
-        </Reveal>
-
-        <Reveal>
-          <section aria-label="Gallery">
-            <h2 className="mb-4 font-display text-xl font-semibold text-ink">
+          <section
+            aria-labelledby="gallery"
+            className="border-t border-line pt-10 md:pt-14"
+          >
+            <h2 id="gallery" className="mb-6 text-heading">
               Gallery
             </h2>
             <ImageGallery
@@ -95,33 +101,18 @@ export default function NerPage() {
             />
           </section>
         </Reveal>
+      </DetailShell>
 
-        <Reveal>
-          <p className="font-mono text-xs text-muted">
-            Related projects:{" "}
-            <Link
-              href="/projects/telemetry-communication-board/"
-              className="text-signal hover:underline"
-            >
-              Telemetry Board
-            </Link>
-            {" · "}
-            <Link
-              href="/projects/ev-dashboard/"
-              className="text-signal hover:underline"
-            >
-              EV Dashboard
-            </Link>
-            {" · "}
-            <Link
-              href="/projects/ev-charger/"
-              className="text-signal hover:underline"
-            >
-              300VDC Charger
-            </Link>
-          </p>
-        </Reveal>
-      </div>
-    </DetailShell>
+      <Section alt labelledBy="team-projects">
+        <SectionHeading id="team-projects" title="Related projects" />
+        <div className="grid gap-4.5 lg:grid-cols-3">
+          {teamProjects.map((project, i) => (
+            <Reveal key={project.slug} delay={i * 70} className="grid">
+              <ProjectCard project={project} />
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+    </>
   );
 }

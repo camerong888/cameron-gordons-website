@@ -1,28 +1,19 @@
 export default function SectionHeading({
-  index,
-  eyebrow,
+  id,
   title,
   lede,
 }: {
-  index: string;
-  eyebrow: string;
+  /** Pairs with the section's aria-labelledby */
+  id: string;
   title: string;
   lede?: string;
 }) {
   return (
-    <div className="mb-10 sm:mb-14">
-      <p className="font-mono text-xs uppercase tracking-[0.25em] text-signal">
-        {"// "}
-        {index} — {eyebrow}
-      </p>
-      <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+    <div className="mb-9 grid max-w-3xl gap-3.5 md:mb-14">
+      <h2 id={id} className="text-headline text-balance">
         {title}
       </h2>
-      {lede ? (
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
-          {lede}
-        </p>
-      ) : null}
+      {lede ? <p className="text-lede text-pretty text-ink-2">{lede}</p> : null}
     </div>
   );
 }
