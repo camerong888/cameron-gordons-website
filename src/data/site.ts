@@ -5,7 +5,7 @@ export const site = {
   title: "Cameron Gordon | Hardware Engineer",
   description:
     "Hardware engineer designing environmentally hardened, high-speed digital electronics for space and defense — FPGA integration, high-speed memory, and mission-critical PCB design.",
-  email: "camerong888@gmail.com",
+  email: "Cameron.Gordon.Eng@gmail.com",
   location: "Boston, MA",
   linkedin: "https://www.linkedin.com/in/gordonca",
   github: "https://github.com/camerong888",
