@@ -31,7 +31,7 @@ export const experiences: Experience[] = [
   {
     slug: "raytheon",
     company: "Raytheon",
-    role: "Hardware Engineer II",
+    role: "Electrical Engineer P2, Receiver Exciter & Back End Processing",
     location: "Woburn, MA",
     start: "Jan 2025",
     end: "Mar 2026",
