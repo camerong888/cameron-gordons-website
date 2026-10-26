@@ -39,7 +39,7 @@ export default function PcbHero() {
             className="rise mt-2.5 flex flex-wrap items-center gap-x-7 gap-y-4"
             style={rise(3)}
           >
-            <Button href="/resume/">View résumé</Button>
+            <Button href="/resume/">View resume</Button>
             <MoreLink href="/#contact">Get in touch</MoreLink>
           </div>
         </div>

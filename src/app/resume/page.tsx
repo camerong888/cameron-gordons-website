@@ -5,17 +5,17 @@ import DetailShell from "@/components/case-study/DetailShell";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Résumé",
+  title: "Resume",
   description:
     "Cameron Gordon's resume — hardware engineer specializing in high-speed digital design for space and defense.",
 };
 
 export default function ResumePage() {
   return (
-    <DetailShell crumbs={[{ label: "Home", href: "/" }, { label: "Résumé" }]}>
+    <DetailShell crumbs={[{ label: "Home", href: "/" }, { label: "Resume" }]}>
       <header className="flex flex-wrap items-end justify-between gap-x-10 gap-y-6 pb-8 pt-10 md:pb-12 md:pt-20">
         <div className="grid gap-3">
-          <h1 className="text-display">Résumé</h1>
+          <h1 className="text-display">Resume</h1>
           <p className="text-lede text-ink-2">
             One page · Experience, education, and technical skills
           </p>
