@@ -125,7 +125,7 @@ export default function HomePage() {
             <MoreLink href={site.github} external>
               GitHub
             </MoreLink>
-            <MoreLink href="/resume/">Résumé</MoreLink>
+            <MoreLink href="/resume/">Resume</MoreLink>
           </div>
           {site.formspreeId ? <ContactForm /> : null}
         </div>

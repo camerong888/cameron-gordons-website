@@ -26,7 +26,7 @@ export default function MoreLink({
     </>
   );
   // A plain anchor for anything that isn't a page route: other sites, mailto,
-  // and files on this site like the résumé PDF, which <Link> would try to
+  // and files on this site like the resume PDF, which <Link> would try to
   // prefetch and route to in the same tab.
   if (external || !href.startsWith("/")) {
     return (

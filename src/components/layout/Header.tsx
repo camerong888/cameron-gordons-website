@@ -70,7 +70,7 @@ export default function Header() {
             onClick={close}
             className="hit-area inline-flex h-8 items-center rounded-full bg-btn px-3.5 text-meta font-medium text-btn-ink transition-[background-color,transform] duration-150 ease-out hover:bg-btn-hover active:scale-[0.97]"
           >
-            Résumé
+            Resume
           </Link>
           <ThemeToggle className="-mr-2.5 hidden md:grid" />
           <button

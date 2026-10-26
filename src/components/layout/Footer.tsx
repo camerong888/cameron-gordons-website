@@ -29,7 +29,7 @@ export default function Footer() {
             GitHub
           </a>
           <Link href="/resume/" className={link}>
-            Résumé
+            Resume
           </Link>
         </nav>
       </div>

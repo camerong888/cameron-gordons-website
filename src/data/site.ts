@@ -25,7 +25,7 @@ export const site = {
   formspreeId: "",
 };
 
-/** Header links; the résumé gets its own button beside them. */
+/** Header links; the resume gets its own button beside them. */
 export const nav = [
   { label: "Experience", href: "/#experience" },
   { label: "Projects", href: "/#projects" },

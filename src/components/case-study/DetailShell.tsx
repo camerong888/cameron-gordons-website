@@ -8,7 +8,7 @@ export interface Crumb {
 }
 
 /**
- * Shared chrome for every detail page (projects, experience, NER, résumé):
+ * Shared chrome for every detail page (projects, experience, NER, resume):
  * a breadcrumb bar under the header, then the page in the content column.
  */
 export default function DetailShell({
